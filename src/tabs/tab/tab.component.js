@@ -7,21 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 var core_1 = require("@angular/core");
-var tabs_component_1 = require("./tabs/tabs.component");
-var AngularTransistorModule = (function () {
-    function AngularTransistorModule() {
+var TabComponent = (function () {
+    function TabComponent() {
     }
-    return AngularTransistorModule;
+    return TabComponent;
 }());
-AngularTransistorModule = __decorate([
-    core_1.NgModule({
-        declarations: [
-            tabs_component_1.TabsComponent
-        ],
-        exports: [
-            tabs_component_1.TabsComponent
-        ],
-        providers: []
+TabComponent = __decorate([
+    core_1.Component({
+        selector: 'tab',
+        templateUrl: './tab.component.html',
+        styleUrls: ['./tab.component.css']
     })
-], AngularTransistorModule);
-exports.AngularTransistorModule = AngularTransistorModule;
+], TabComponent);
+exports.TabComponent = TabComponent;

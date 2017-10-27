@@ -1,3 +1,1 @@
-/**
- * Created by KOLU0897 on 27.10.2017.
- */
+export { AngularTransistorModule } from './src/angular-transistor.module'
