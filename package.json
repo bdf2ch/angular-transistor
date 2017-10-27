@@ -1,0 +1,39 @@
+{
+  "name": "@bdf2ch/angular-transistor",
+  "version": "0.0.1",
+  "description": "Kit of UI plugins for Angular2+",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bdf2ch/angular-transistor.git"
+  },
+  "keywords": [
+    "angular",
+    "angular2",
+    "ui",
+    "kit",
+    "typeahead",
+    "tabs",
+    "modals"
+  ],
+  "author": "bdf2ch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bdf2ch/angular-transistor/issues"
+  },
+  "homepage": "https://github.com/bdf2ch/angular-transistor#readme",
+  "dependencies": {
+    "@angular/core": "^4.4.6",
+    "rxjs": "^5.5.2",
+    "zone.js": "^0.8.18"
+  },
+  "devDependencies": {
+    "@angular/common": "^4.4.6",
+    "@angular/compiler": "^4.4.6",
+    "@angular/platform-browser": "^4.4.6",
+    "@angular/platform-browser-dynamic": "^4.4.6"
+  }
+}
