@@ -7,19 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var test_app_component_1 = require("./test-app.component");
-var TestAppModule = (function () {
-    function TestAppModule() {
+var TabsService = (function () {
+    function TabsService() {
     }
-    return TestAppModule;
+    return TabsService;
 }());
-TestAppModule = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [test_app_component_1.TestAppComponent],
-        bootstrap: [test_app_component_1.TestAppComponent]
-    })
-], TestAppModule);
-exports.TestAppModule = TestAppModule;
-//# sourceMappingURL=test-app.module.js.map
+TabsService = __decorate([
+    core_1.Injectable()
+], TabsService);
+exports.TabsService = TabsService;
+;
+//# sourceMappingURL=tabs.service.js.map

@@ -4,7 +4,25 @@
   "description": "Kit of UI plugins for Angular2+",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:once": "karma start karma.conf.js --single-run",
+    "build": "rimraf dist && webpack --config config/webpack.prod.js --bail",
+    "serve": "lite-server -c=bs-config.json",
+    "prestart": "npm run build",
+    "start": "webpack-dev-server --inline --progress --port 8080",
+    "pretest": "npm run build",
+    "test": "karma start karma.webpack.conf.js",
+    "pretest:once": "npm run build",
+    "build:watch": "tsc -p src/ -w",
+    "build:upgrade": "tsc",
+    "serve:upgrade": "http-server",
+    "build:aot": "ngc -p tsconfig-aot.json && rollup -c rollup-config.js",
+    "serve:aot": "lite-server -c bs-config.aot.json",
+    "build:babel": "babel src -d src --extensions \".es6\" --source-maps",
+    "copy-dist-files": "node ./copy-dist-files.js",
+    "i18n": "ng-xi18n",
+    "lint": "tslint ./src/**/*.ts -t verbose",
+    "ng": "ng",
+    "e2e": "ng e2e"
   },
   "repository": {
     "type": "git",
@@ -27,14 +45,14 @@
   "homepage": "https://github.com/bdf2ch/angular-transistor#readme",
   "dependencies": {
     "@angular/core": "^4.4.6",
-    "rxjs": "^5.5.2",
-    "zone.js": "^0.8.18"
-  },
-  "devDependencies": {
     "@angular/common": "^4.4.6",
     "@angular/compiler": "^4.4.6",
     "@angular/platform-browser": "^4.4.6",
     "@angular/platform-browser-dynamic": "^4.4.6",
+    "rxjs": "^5.5.2",
+    "zone.js": "^0.8.18"
+  },
+  "devDependencies": {
     "@types/angular": "^1.5.16",
     "@types/angular-animate": "^1.5.5",
     "@types/angular-cookies": "^1.4.2",
