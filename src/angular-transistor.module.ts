@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { TabsComponent } from './tabs/tabs.component';
+import { TabComponent } from './tabs/tab/tab.component';
 
 
 @NgModule({
     declarations: [
-        TabsComponent
+        TabsComponent,
+        TabComponent
     ],
     exports: [
-        TabsComponent
+        TabsComponent,
+        TabComponent
     ],
-    providers: []
+    providers: [
+
+    ]
 })
 export class AngularTransistorModule {}

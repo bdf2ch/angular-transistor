@@ -1,4 +1,7 @@
-export interface ITabs {
+import { TabPlugin } from './tab/tab.model';
+
+
+export class Tabs {
     id: string;
-    tabs: any[]
-};
+    tabs: TabPlugin[] = [];
+}

@@ -9,12 +9,32 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var TabsService = (function () {
     function TabsService() {
+        /* Array containing all registered tabs components */
+        this.tabs = [];
     }
+    /**
+     * Registering TabsComponent
+     * @param {TabsComponent} tabs
+     */
+    TabsService.prototype.register = function (tabs) {
+        this.tabs.push(tabs);
+    };
+    ;
+    /**
+     * Getting tabs component by its id
+     * @param {string} id
+     * @returns {TabsComponent}
+     */
+    TabsService.prototype.get = function (id) {
+        var findTabById = function (tabs) { return tabs.id === id; };
+        var tabs = this.tabs.find(findTabById);
+        return tabs ? tabs : null;
+    };
+    ;
     return TabsService;
 }());
 TabsService = __decorate([
     core_1.Injectable()
 ], TabsService);
 exports.TabsService = TabsService;
-;
 //# sourceMappingURL=tabs.service.js.map

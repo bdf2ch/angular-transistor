@@ -1,9 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Tab = (function () {
-    function Tab() {
+var TabPlugin = (function () {
+    function TabPlugin(config) {
+        if (config) {
+            this.id = config.id;
+            this.caption = config.caption;
+        }
+        this.isActive = false;
     }
-    return Tab;
+    ;
+    return TabPlugin;
 }());
-exports.Tab = Tab;
+exports.TabPlugin = TabPlugin;
 //# sourceMappingURL=tab.model.js.map

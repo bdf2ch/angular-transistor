@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var tabs_component_1 = require("./tabs/tabs.component");
+var tab_component_1 = require("./tabs/tab/tab.component");
 var AngularTransistorModule = (function () {
     function AngularTransistorModule() {
     }
@@ -16,10 +17,12 @@ var AngularTransistorModule = (function () {
 AngularTransistorModule = __decorate([
     core_1.NgModule({
         declarations: [
-            tabs_component_1.TabsComponent
+            tabs_component_1.TabsComponent,
+            tab_component_1.TabComponent
         ],
         exports: [
-            tabs_component_1.TabsComponent
+            tabs_component_1.TabsComponent,
+            tab_component_1.TabComponent
         ],
         providers: []
     })

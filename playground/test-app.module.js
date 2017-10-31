@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var angular_transistor_module_1 = require("../src/angular-transistor.module");
 var test_app_component_1 = require("./test-app.component");
 var TestAppModule = (function () {
     function TestAppModule() {
@@ -16,9 +17,16 @@ var TestAppModule = (function () {
 }());
 TestAppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [test_app_component_1.TestAppComponent],
-        bootstrap: [test_app_component_1.TestAppComponent]
+        imports: [
+            platform_browser_1.BrowserModule,
+            angular_transistor_module_1.AngularTransistorModule
+        ],
+        declarations: [
+            test_app_component_1.TestAppComponent,
+        ],
+        bootstrap: [
+            test_app_component_1.TestAppComponent
+        ]
     })
 ], TestAppModule);
 exports.TestAppModule = TestAppModule;

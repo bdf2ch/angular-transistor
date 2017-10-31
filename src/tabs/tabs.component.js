@@ -13,7 +13,12 @@ var core_1 = require("@angular/core");
 var TabsComponent = (function () {
     function TabsComponent() {
         this.id = '';
+        this.tabs = [];
     }
+    TabsComponent.prototype.registerTab = function (tab) {
+        this.tabs.push(tab);
+    };
+    ;
     return TabsComponent;
 }());
 __decorate([
@@ -24,7 +29,7 @@ TabsComponent = __decorate([
     core_1.Component({
         selector: 'tabs',
         templateUrl: './tabs.component.html',
-        styleUrls: ['.tabs.component.css']
+        styleUrls: ['./tabs.component.css']
     })
 ], TabsComponent);
 exports.TabsComponent = TabsComponent;
