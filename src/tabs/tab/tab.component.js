@@ -16,22 +16,41 @@ var core_1 = require("@angular/core");
 var tabs_component_1 = require("../tabs.component");
 var TabComponent = (function () {
     /**
-     * Component constructor
-     * @param {TabsComponent} tabs
+     * Component constructor.
+     * @param {TabsComponent} parent
      */
-    function TabComponent(tabs) {
-        this.tabs = tabs;
-        console.log('host', this.tabs);
-        if (!this.tabs) {
+    function TabComponent(parent) {
+        this.parent = parent;
+        if (!this.parent) {
             console.error('angular-transistor: \'tab\' component must be used only inside \'tabs\' component');
             return;
         }
+        this.width = 0;
+        this.isSelected = false;
     }
     ;
+    /**
+     * Tab component initialization.
+     * Registering tab on parent tabs component.
+     */
     TabComponent.prototype.ngOnInit = function () {
-        if (this.tabs) {
-            this.tabs.registerTab(this);
+        if (this.parent) {
+            this.parent.registerTab(this);
         }
+    };
+    ;
+    /**
+     * Mark tab as selected.
+     */
+    TabComponent.prototype.select = function () {
+        this.isSelected = true;
+    };
+    ;
+    /**
+     * Mark tab as not selected.
+     */
+    TabComponent.prototype.deselect = function () {
+        this.isSelected = false;
     };
     ;
     return TabComponent;
@@ -44,6 +63,18 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", String)
 ], TabComponent.prototype, "caption", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], TabComponent.prototype, "icon", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], TabComponent.prototype, "title", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], TabComponent.prototype, "width", void 0);
 TabComponent = __decorate([
     core_1.Component({
         selector: 'tab',

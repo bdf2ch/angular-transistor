@@ -1,1 +1,16 @@
-<div class="tabs-component"></div>
+<div class="tabs-component">
+    <div class="tabs">
+        <div class="tab"
+             *ngFor="let tab of tabs"
+             [ngClass]="{ 'selected': tab.isSelected }"
+             [ngStyle]="{ 'width': width + '%' }"
+             title="{{ tab.title }}"
+             (click)="selectTab(tab)">
+            <i class="{{ tab.icon }}" *ngIf="tab.icon"></i>
+            <span class="caption">{{ tab.caption }}</span>
+        </div>
+    </div>
+    <div class="content">
+        <ng-content></ng-content>
+    </div>
+</div>

@@ -10,13 +10,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var tabs_service_1 = require("./tabs.service");
 var TabsComponent = (function () {
-    function TabsComponent() {
+    function TabsComponent(tabsService) {
+        this.tabsService = tabsService;
+        /* Tabs id */
         this.id = '';
+        /* Array of containing tabs */
         this.tabs = [];
     }
+    TabsComponent.prototype.ngOnInit = function () {
+        this.tabsService.register(this);
+    };
+    ;
+    /**
+     * Register new tab
+     * @param {TabComponent} tab
+     */
     TabsComponent.prototype.registerTab = function (tab) {
-        this.tabs.push(tab);
+        var findTabById = function (item) { return item.id === tab.id; };
+        var foundedTab = this.tabs.find(findTabById);
+        if (foundedTab) {
+            console.error('angular-transistor: tab with id \'' + tab.id + '\' already exists');
+            return false;
+        }
+        else {
+            this.tabs.push(tab);
+            console.log(this.tabs);
+            this.selectTab(this.tabs[0]);
+            return true;
+        }
+    };
+    ;
+    /**
+     * Select tab
+     * @param {TabComponent} tab
+     * @returns {TabComponent}
+     */
+    TabsComponent.prototype.selectTab = function (tab) {
+        this.tabs.forEach(function (item) {
+            if (item.id === tab.id) {
+                tab.select();
+                return tab;
+            }
+            else {
+                item.deselect();
+            }
+        });
+        return null;
     };
     ;
     return TabsComponent;
@@ -30,7 +71,8 @@ TabsComponent = __decorate([
         selector: 'tabs',
         templateUrl: './tabs.component.html',
         styleUrls: ['./tabs.component.css']
-    })
+    }),
+    __metadata("design:paramtypes", [tabs_service_1.TabsService])
 ], TabsComponent);
 exports.TabsComponent = TabsComponent;
 //# sourceMappingURL=tabs.component.js.map

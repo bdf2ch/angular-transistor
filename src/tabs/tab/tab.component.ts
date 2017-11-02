@@ -1,5 +1,4 @@
 import { Component, Input, Host, Optional, OnInit } from '@angular/core';
-import { TabPlugin } from './tab.model';
 import { TabsComponent } from '../tabs.component';
 
 
@@ -9,27 +8,57 @@ import { TabsComponent } from '../tabs.component';
     styleUrls: ['./tab.component.css']
 })
 export class TabComponent implements OnInit {
+    /* Tab id */
     @Input() id: string;
+    /* Tab caption */
     @Input() caption: string;
-    model: TabPlugin;
+    /* Tab icon */
+    @Input() icon: string;
+    /* Tab title */
+    @Input() title: string;
+    /* Tab width */
+    @Input() width: number;
+    /* Is tab selected or not */
+    private isSelected: boolean;
 
 
     /**
-     * Component constructor
-     * @param {TabsComponent} tabs
+     * Component constructor.
+     * @param {TabsComponent} parent
      */
-    constructor(@Optional() @Host() private tabs: TabsComponent) {
-        console.log('host', this.tabs);
-        if (!this.tabs) {
+    constructor(@Optional() @Host() private parent: TabsComponent) {
+        if (!this.parent) {
             console.error('angular-transistor: \'tab\' component must be used only inside \'tabs\' component');
             return;
+        }
+        this.width = 0;
+        this.isSelected = false;
+    };
+
+
+    /**
+     * Tab component initialization.
+     * Registering tab on parent tabs component.
+     */
+    ngOnInit(): void {
+        if (this.parent) {
+            this.parent.registerTab(this);
         }
     };
 
 
-    ngOnInit(): void {
-        if (this.tabs) {
-            this.tabs.registerTab(this);
-        }
+    /**
+     * Mark tab as selected.
+     */
+    select(): void {
+        this.isSelected = true;
+    };
+
+
+    /**
+     * Mark tab as not selected.
+     */
+    deselect(): void {
+        this.isSelected = false;
     };
 }

@@ -1,3 +1,40 @@
-.tabs-component {
+@tabs-padding-left: 30px;
+@tabs-padding-right: 30px;
+@tab-padding-top: 10px;
+@tab-padding-left: 20px;
+@tab-caption-font-size: 13px;
+@tab-caption-font-color-selected: #03A9F4;
 
+.tabs-component {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  .tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-shrink: 0;
+    padding-left: @tabs-padding-left;
+    padding-right: @tabs-padding-right;
+    .tab {
+      padding: @tab-padding-top @tab-padding-left;
+      box-sizing: border-box;
+      font-size: @tab-caption-font-size;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      &.selected {
+        color: @tab-caption-font-color-selected;
+        border-bottom: 3px solid @tab-caption-font-color-selected;
+      }
+    }
+  }
+  .content {
+    overflow: auto;
+    border-top: 1px solid #ECEFF1;
+  }
 }
+
+
