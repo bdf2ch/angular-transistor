@@ -1,12 +1,12 @@
-<div class="tabs-component">
+<div class="tabs-component" *ngIf="isEnabled">
     <div class="tabs">
         <div class="tab"
              *ngFor="let tab of tabs"
-             [ngClass]="{ 'selected': tab.isSelected }"
-             [ngStyle]="{ 'width': width + '%' }"
+             [ngClass]="{ 'selected': tab.isSelected, 'disabled': tab.disabled }"
+             [ngStyle]="{ 'width': tab.width + '%' }"
              title="{{ tab.title }}"
-             (click)="selectTab(tab)">
-            <i class="{{ tab.icon }}" *ngIf="tab.icon"></i>
+             (click)="tab.select()">
+            <i class="icon {{ tab.icon }}" *ngIf="tab.icon"></i>
             <span class="caption">{{ tab.caption }}</span>
         </div>
     </div>

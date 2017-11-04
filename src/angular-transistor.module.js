@@ -11,6 +11,9 @@ var common_1 = require("@angular/common");
 var tabs_component_1 = require("./tabs/tabs.component");
 var tab_component_1 = require("./tabs/tab/tab.component");
 var tabs_service_1 = require("./tabs/tabs.service");
+var modal_component_1 = require("./modals/modal.component");
+var modals_service_1 = require("./modals/modals.service");
+require("./assets/styles/angular-transistor.css");
 require("font-awesome/css/font-awesome.css");
 var AngularTransistorModule = (function () {
     function AngularTransistorModule() {
@@ -24,14 +27,17 @@ AngularTransistorModule = __decorate([
         ],
         declarations: [
             tabs_component_1.TabsComponent,
-            tab_component_1.TabComponent
+            tab_component_1.TabComponent,
+            modal_component_1.ModalComponent
         ],
         exports: [
             tabs_component_1.TabsComponent,
-            tab_component_1.TabComponent
+            tab_component_1.TabComponent,
+            modal_component_1.ModalComponent
         ],
         providers: [
-            tabs_service_1.TabsService
+            tabs_service_1.TabsService,
+            modals_service_1.ModalsService
         ]
     })
 ], AngularTransistorModule);

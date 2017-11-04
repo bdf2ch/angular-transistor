@@ -16,10 +16,7 @@ module.exports = webpackMerge(commonConfig, {
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].css'),
-      new WatchIgnorePlugin([
-          path.resolve(__dirname, '../src/assets/images/contacts'),
-      ]),
+    new ExtractTextPlugin('[name].css')
   ],
 
   devServer: {

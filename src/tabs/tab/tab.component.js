@@ -21,11 +21,20 @@ var TabComponent = (function () {
      */
     function TabComponent(parent) {
         this.parent = parent;
+        /* Tab select event */
+        this.onSelect = new core_1.EventEmitter();
+        /* Tab deselect event */
+        this.onDeselect = new core_1.EventEmitter();
+        /* Tab enable event */
+        this.onEnable = new core_1.EventEmitter();
+        /* Tab disable event */
+        this.onDisable = new core_1.EventEmitter();
         if (!this.parent) {
             console.error('angular-transistor: \'tab\' component must be used only inside \'tabs\' component');
             return;
         }
         this.width = 0;
+        this.disabled = false;
         this.isSelected = false;
     }
     ;
@@ -40,17 +49,49 @@ var TabComponent = (function () {
     };
     ;
     /**
-     * Mark tab as selected.
+     * Marks tab as selected and emits onSelect event.
      */
     TabComponent.prototype.select = function () {
-        this.isSelected = true;
+        var _this = this;
+        if (!this.disabled) {
+            this.isSelected = true;
+            this.onSelect.emit();
+            this.parent.tabs.forEach(function (item) {
+                if (item.id !== _this.id) {
+                    item.deselect();
+                }
+            });
+        }
     };
     ;
     /**
-     * Mark tab as not selected.
+     * Marks tab as not selected and emits onDeselect event.
      */
     TabComponent.prototype.deselect = function () {
         this.isSelected = false;
+        this.onDeselect.emit();
+    };
+    ;
+    /**
+     * Marks tab as enabled and emits onEnable event.
+     */
+    TabComponent.prototype.enable = function () {
+        this.disabled = false;
+        this.onEnable.emit();
+    };
+    ;
+    /**
+     * Marks tab as disabled and emits onDisable event.
+     * Selects first tab that is not disabled.
+     */
+    TabComponent.prototype.disable = function () {
+        this.disabled = true;
+        this.onDisable.emit();
+        var firstEnabledTab = function (item) { return !item.disabled; };
+        var foundedFirstEnabledTab = this.parent.tabs.find(firstEnabledTab);
+        if (foundedFirstEnabledTab) {
+            foundedFirstEnabledTab.select();
+        }
     };
     ;
     return TabComponent;
@@ -75,6 +116,26 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Number)
 ], TabComponent.prototype, "width", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], TabComponent.prototype, "disabled", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], TabComponent.prototype, "onSelect", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], TabComponent.prototype, "onDeselect", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], TabComponent.prototype, "onEnable", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], TabComponent.prototype, "onDisable", void 0);
 TabComponent = __decorate([
     core_1.Component({
         selector: 'tab',

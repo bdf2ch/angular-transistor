@@ -17,7 +17,16 @@ var TabsService = (function () {
      * @param {TabsComponent} tabs
      */
     TabsService.prototype.register = function (tabs) {
-        this.tabs.push(tabs);
+        var findTabsById = function (item) { return item.id === tabs.id; };
+        var result = this.tabs.find(findTabsById);
+        if (result) {
+            console.error('angular-transistor: tabs plugin with id \'' + tabs.id + '\' already exists');
+            return false;
+        }
+        else {
+            this.tabs.push(tabs);
+            return true;
+        }
     };
     ;
     /**

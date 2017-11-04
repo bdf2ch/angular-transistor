@@ -3,7 +3,11 @@ import { CommonModule } from '@angular/common';
 import { TabsComponent } from './tabs/tabs.component';
 import { TabComponent } from './tabs/tab/tab.component';
 import { TabsService } from './tabs/tabs.service';
+import { ModalComponent } from './modals/modal.component';
+import { ModalsService } from './modals/modals.service';
+import './assets/styles/angular-transistor.css';
 import 'font-awesome/css/font-awesome.css';
+
 
 
 @NgModule({
@@ -12,14 +16,17 @@ import 'font-awesome/css/font-awesome.css';
     ],
     declarations: [
         TabsComponent,
-        TabComponent
+        TabComponent,
+        ModalComponent
     ],
     exports: [
         TabsComponent,
-        TabComponent
+        TabComponent,
+        ModalComponent
     ],
     providers: [
-        TabsService
+        TabsService,
+        ModalsService
     ]
 })
 export class AngularTransistorModule {}

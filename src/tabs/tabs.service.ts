@@ -6,15 +6,23 @@ import { TabsComponent } from './tabs.component';
 export class TabsService {
 
     /* Array containing all registered tabs components */
-    private tabs: TabsComponent[] = [];
+    public tabs: TabsComponent[] = [];
 
 
     /**
      * Registering TabsComponent
      * @param {TabsComponent} tabs
      */
-    register(tabs: TabsComponent): void {
-        this.tabs.push(tabs);
+    register(tabs: TabsComponent): boolean {
+        const findTabsById = (item: TabsComponent) => item.id === tabs.id;
+        const result = this.tabs.find(findTabsById);
+        if (result) {
+            console.error('angular-transistor: tabs plugin with id \'' + tabs.id + '\' already exists');
+            return false;
+        } else {
+            this.tabs.push(tabs);
+            return true;
+        }
     };
 
 

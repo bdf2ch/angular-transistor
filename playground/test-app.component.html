@@ -1,27 +1,81 @@
-PLAYGROUND
+<div>
+    TABS<br><br>
+    <div style="float: left; margin-right: 50px; width: 500px; height: 400px; margin-bottom: 100px; border: 1px solid grey;">
+        <tabs [id]="'lol'">
+            <tab [id]="'test1'" [caption]="'tab 1'" [icon]="'fa fa-globe'" [title]="'tab 1 title'" [width]="33.3">
+                <div style="padding: 20px;">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem beatae delectus deserunt eum excepturi id in, incidunt minus optio quae quasi qui quia, quo recusandae reiciendis repellendus saepe sint voluptatem.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, aliquid deleniti eaque et ex excepturi exercitationem ipsa iusto magnam nesciunt omnis, perferendis possimus quo sit ut! Aliquid magnam quaerat tenetur?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi aperiam commodi, distinctio expedita explicabo fugit, laudantium libero maiores nemo neque numquam obcaecati quas quisquam quod quos repellat totam vel.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa eos incidunt iste minima, neque quaerat? A dolor fuga magnam minus mollitia nisi odio odit officia possimus provident, suscipit unde!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda delectus distinctio eos harum hic laudantium molestiae officia pariatur ratione voluptas. Assumenda doloremque eligendi est impedit libero maiores maxime quam ut.
+                </div>
+            </tab>
+            <tab [id]="'test2'" [caption]="'tab 2'" [title]="'tab2 title'" [width]="33.3" [disabled]="true">
+                <div style="padding: 20px;">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dolor eveniet fuga ipsum minima optio quas, vitae. Consectetur, deserunt dolor excepturi illum incidunt, iusto porro ratione, recusandae tempore vitae voluptatum?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consectetur corporis dicta fugit harum hic laborum magnam magni modi nam natus porro possimus quod quos, similique sint ullam vel veritatis.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, praesentium tempore? Aspernatur assumenda consectetur fugit ipsum iusto labore minus necessitatibus neque officia. Accusamus amet dolorum ea error excepturi, id necessitatibus.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A enim fugit hic impedit ipsa ipsam, libero molestiae necessitatibus nesciunt odit officia quod suscipit tempora vitae voluptatem! Iste saepe tempore voluptatum.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur commodi consequatur corporis eum ex, facilis incidunt, ipsa ipsam iusto magnam, modi obcaecati reiciendis sapiente sunt temporibus totam vero voluptates voluptatibus.
+                </div>
+            </tab>
+            <tab [id]="'test3'" [caption]="'tab 3'" [icon]="'fa fa-gears'" [title]="'tab 3 title'" [width]="33.3">
+                <div style="padding: 20px;">
+                    tab 3 content here
+                </div>
+            </tab>
+        </tabs>
+        <br>
+        <div>
+            <button (click)="selectFirstTab()">select first tab</button>
+            <button (click)="selectThirdTab()">select third tab</button>
+            <button (click)="disableFirstTab()">disable first tab</button>
+            <button (click)="enableFirstTab()">enable first tab</button>
+        </div>
+    </div>
 
-<div style="width: 400px; height: 400px; border: 1px solid grey;">
-    <tabs [id]="'lol'">
-        <tab [id]="'test1'" [caption]="'test tab'" [icon]="'fa fa-globe'" [title]="'tab 1 title'" [width]="40">
-            <div style="padding: 20px;">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem beatae delectus deserunt eum excepturi id in, incidunt minus optio quae quasi qui quia, quo recusandae reiciendis repellendus saepe sint voluptatem.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, aliquid deleniti eaque et ex excepturi exercitationem ipsa iusto magnam nesciunt omnis, perferendis possimus quo sit ut! Aliquid magnam quaerat tenetur?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi aperiam commodi, distinctio expedita explicabo fugit, laudantium libero maiores nemo neque numquam obcaecati quas quisquam quod quos repellat totam vel.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa eos incidunt iste minima, neque quaerat? A dolor fuga magnam minus mollitia nisi odio odit officia possimus provident, suscipit unde!
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda delectus distinctio eos harum hic laudantium molestiae officia pariatur ratione voluptas. Assumenda doloremque eligendi est impedit libero maiores maxime quam ut.
-            </div>
-        </tab>
-        <tab [id]="'test2'" [caption]="'test tab 2'" [title]="'tab2 title'" [width]="50">
-            <div style="padding: 20px;">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dolor eveniet fuga ipsum minima optio quas, vitae. Consectetur, deserunt dolor excepturi illum incidunt, iusto porro ratione, recusandae tempore vitae voluptatum?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consectetur corporis dicta fugit harum hic laborum magnam magni modi nam natus porro possimus quod quos, similique sint ullam vel veritatis.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, praesentium tempore? Aspernatur assumenda consectetur fugit ipsum iusto labore minus necessitatibus neque officia. Accusamus amet dolorum ea error excepturi, id necessitatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A enim fugit hic impedit ipsa ipsam, libero molestiae necessitatibus nesciunt odit officia quod suscipit tempora vitae voluptatem! Iste saepe tempore voluptatum.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur commodi consequatur corporis eum ex, facilis incidunt, ipsa ipsam iusto magnam, modi obcaecati reiciendis sapiente sunt temporibus totam vero voluptates voluptatibus.
-            </div>
-        </tab>
-    </tabs>
+
+    <div style="float: left; width: 500px; height: 400px; border: 1px solid grey;">
+        <tabs [id]="'lol2'">
+            <tab [id]="'test1'" [caption]="'tab 1'" [icon]="'fa fa-globe'" [title]="'tab 1 title'" [width]="33.3" [disabled]="true">
+                <div style="padding: 20px;">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem beatae delectus deserunt eum excepturi id in, incidunt minus optio quae quasi qui quia, quo recusandae reiciendis repellendus saepe sint voluptatem.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, aliquid deleniti eaque et ex excepturi exercitationem ipsa iusto magnam nesciunt omnis, perferendis possimus quo sit ut! Aliquid magnam quaerat tenetur?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi aperiam commodi, distinctio expedita explicabo fugit, laudantium libero maiores nemo neque numquam obcaecati quas quisquam quod quos repellat totam vel.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa eos incidunt iste minima, neque quaerat? A dolor fuga magnam minus mollitia nisi odio odit officia possimus provident, suscipit unde!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda delectus distinctio eos harum hic laudantium molestiae officia pariatur ratione voluptas. Assumenda doloremque eligendi est impedit libero maiores maxime quam ut.
+                </div>
+            </tab>
+            <tab [id]="'test2'" [caption]="'tab 2'" [title]="'tab2 title'" [width]="33.3" [disabled]="true">
+                <div style="padding: 20px;">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dolor eveniet fuga ipsum minima optio quas, vitae. Consectetur, deserunt dolor excepturi illum incidunt, iusto porro ratione, recusandae tempore vitae voluptatum?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consectetur corporis dicta fugit harum hic laborum magnam magni modi nam natus porro possimus quod quos, similique sint ullam vel veritatis.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, praesentium tempore? Aspernatur assumenda consectetur fugit ipsum iusto labore minus necessitatibus neque officia. Accusamus amet dolorum ea error excepturi, id necessitatibus.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A enim fugit hic impedit ipsa ipsam, libero molestiae necessitatibus nesciunt odit officia quod suscipit tempora vitae voluptatem! Iste saepe tempore voluptatum.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur commodi consequatur corporis eum ex, facilis incidunt, ipsa ipsam iusto magnam, modi obcaecati reiciendis sapiente sunt temporibus totam vero voluptates voluptatibus.
+                </div>
+            </tab>
+            <tab [id]="'test3'" [caption]="'tab 3'" [icon]="'fa fa-gears'" [title]="'tab 3 title'" [width]="33.3">
+                <div style="padding: 20px;">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem beatae delectus deserunt eum excepturi id in, incidunt minus optio quae quasi qui quia, quo recusandae reiciendis repellendus saepe sint voluptatem.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, aliquid deleniti eaque et ex excepturi exercitationem ipsa iusto magnam nesciunt omnis, perferendis possimus quo sit ut! Aliquid magnam quaerat tenetur?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi aperiam commodi, distinctio expedita explicabo fugit, laudantium libero maiores nemo neque numquam obcaecati quas quisquam quod quos repellat totam vel.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa eos incidunt iste minima, neque quaerat? A dolor fuga magnam minus mollitia nisi odio odit officia possimus provident, suscipit unde!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda delectus distinctio eos harum hic laudantium molestiae officia pariatur ratione voluptas. Assumenda doloremque eligendi est impedit libero maiores maxime quam ut.
+                </div>
+            </tab>
+        </tabs>
+    </div>
 </div>
 
 
 
+
+<br><br><br>
+<div>
+    <hr style="display: block; width: 100%;">
+    MODALS<br><br>
+    <modal [id]="'test-modal'" [caption]="'test modal caption'"></modal>
+    <button (click)="openModal()">open modal</button>
+</div>

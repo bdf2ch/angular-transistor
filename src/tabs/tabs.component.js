@@ -12,15 +12,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var tabs_service_1 = require("./tabs.service");
 var TabsComponent = (function () {
+    /**
+     * Constructor
+     * @param {TabsService} tabsService
+     */
     function TabsComponent(tabsService) {
         this.tabsService = tabsService;
         /* Tabs id */
         this.id = '';
         /* Array of containing tabs */
         this.tabs = [];
+        this.isEnabled = true;
     }
+    /**
+     * Component initialization
+     */
     TabsComponent.prototype.ngOnInit = function () {
-        this.tabsService.register(this);
+        this.isEnabled = this.tabsService.register(this);
     };
     ;
     /**
@@ -36,28 +44,24 @@ var TabsComponent = (function () {
         }
         else {
             this.tabs.push(tab);
-            console.log(this.tabs);
-            this.selectTab(this.tabs[0]);
+            var firstEnabledTab = function (item) { return !item.disabled; };
+            var foundedFirstEnabledTab = this.tabs.find(firstEnabledTab);
+            if (foundedFirstEnabledTab) {
+                foundedFirstEnabledTab.select();
+            }
             return true;
         }
     };
     ;
     /**
-     * Select tab
-     * @param {TabComponent} tab
-     * @returns {TabComponent}
+     * Returns tab with specified id otherwise null
+     * @param {string} tabId
+     * @returns {TabComponent | null}
      */
-    TabsComponent.prototype.selectTab = function (tab) {
-        this.tabs.forEach(function (item) {
-            if (item.id === tab.id) {
-                tab.select();
-                return tab;
-            }
-            else {
-                item.deselect();
-            }
-        });
-        return null;
+    TabsComponent.prototype.tab = function (tabId) {
+        var findTabById = function (tab) { return tab.id === tabId; };
+        var result = this.tabs.find(findTabById);
+        return result ? result : null;
     };
     ;
     return TabsComponent;

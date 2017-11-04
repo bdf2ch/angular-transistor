@@ -12,14 +12,25 @@ export class TabsComponent implements OnInit {
     /* Tabs id */
     @Input() id: string = '';
     /* Array of containing tabs */
-    private tabs: TabComponent[] = [];
+    public tabs: TabComponent[] = [];
+    /* Is component enabled */
+    private isEnabled: boolean;
 
 
-    constructor(private tabsService: TabsService) {}
+    /**
+     * Constructor
+     * @param {TabsService} tabsService
+     */
+    constructor(private tabsService: TabsService) {
+        this.isEnabled = true;
+    }
 
 
+    /**
+     * Component initialization
+     */
     ngOnInit(): void {
-        this.tabsService.register(this);
+        this.isEnabled = this.tabsService.register(this);
     };
 
 
@@ -35,27 +46,24 @@ export class TabsComponent implements OnInit {
             return false;
         } else {
             this.tabs.push(tab);
-            console.log(this.tabs);
-            this.selectTab(this.tabs[0]);
+            const firstEnabledTab = (item: TabComponent) => !item.disabled;
+            const foundedFirstEnabledTab = this.tabs.find(firstEnabledTab);
+            if (foundedFirstEnabledTab) {
+                foundedFirstEnabledTab.select();
+            }
             return true;
         }
     };
 
 
     /**
-     * Select tab
-     * @param {TabComponent} tab
-     * @returns {TabComponent}
+     * Returns tab with specified id otherwise null
+     * @param {string} tabId
+     * @returns {TabComponent | null}
      */
-    selectTab(tab: TabComponent): TabComponent | null {
-        this.tabs.forEach((item: TabComponent) => {
-            if (item.id === tab.id) {
-                tab.select();
-                return tab;
-            } else {
-                item.deselect();
-            }
-        });
-        return null;
+    tab(tabId: string): TabComponent | null {
+        const findTabById = (tab: TabComponent) => tab.id === tabId;
+        const result = this.tabs.find(findTabById);
+        return result ? result : null;
     };
 }

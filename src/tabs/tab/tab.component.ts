@@ -1,4 +1,4 @@
-import { Component, Input, Host, Optional, OnInit } from '@angular/core';
+import { Component, Input, Output, Host, Optional, OnInit, EventEmitter } from '@angular/core';
 import { TabsComponent } from '../tabs.component';
 
 
@@ -18,6 +18,16 @@ export class TabComponent implements OnInit {
     @Input() title: string;
     /* Tab width */
     @Input() width: number;
+    /* Is tab disabled */
+    @Input() disabled: boolean;
+    /* Tab select event */
+    @Output() onSelect: EventEmitter<any> = new EventEmitter();
+    /* Tab deselect event */
+    @Output() onDeselect: EventEmitter<any> = new EventEmitter();
+    /* Tab enable event */
+    @Output() onEnable: EventEmitter<any> = new EventEmitter();
+    /* Tab disable event */
+    @Output() onDisable: EventEmitter<any> = new EventEmitter();
     /* Is tab selected or not */
     private isSelected: boolean;
 
@@ -32,6 +42,7 @@ export class TabComponent implements OnInit {
             return;
         }
         this.width = 0;
+        this.disabled = false;
         this.isSelected = false;
     };
 
@@ -48,17 +59,50 @@ export class TabComponent implements OnInit {
 
 
     /**
-     * Mark tab as selected.
+     * Marks tab as selected and emits onSelect event.
      */
     select(): void {
-        this.isSelected = true;
+        if (!this.disabled) {
+            this.isSelected = true;
+            this.onSelect.emit();
+            this.parent.tabs.forEach((item: TabComponent) => {
+                if (item.id !== this.id) {
+                    item.deselect();
+                }
+            });
+        }
     };
 
 
     /**
-     * Mark tab as not selected.
+     * Marks tab as not selected and emits onDeselect event.
      */
     deselect(): void {
         this.isSelected = false;
+        this.onDeselect.emit();
+    };
+
+
+    /**
+     * Marks tab as enabled and emits onEnable event.
+     */
+    enable(): void {
+        this.disabled = false;
+        this.onEnable.emit();
+    };
+
+
+    /**
+     * Marks tab as disabled and emits onDisable event.
+     * Selects first tab that is not disabled.
+     */
+    disable(): void {
+        this.disabled = true;
+        this.onDisable.emit();
+        const firstEnabledTab = (item: TabComponent) => !item.disabled;
+        const foundedFirstEnabledTab = this.parent.tabs.find(firstEnabledTab);
+        if (foundedFirstEnabledTab) {
+            foundedFirstEnabledTab.select();
+        }
     };
 }
