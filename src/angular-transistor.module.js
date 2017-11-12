@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
+var animations_1 = require("@angular/platform-browser/animations");
 var tabs_component_1 = require("./tabs/tabs.component");
 var tab_component_1 = require("./tabs/tab/tab.component");
 var tabs_service_1 = require("./tabs/tabs.service");
@@ -15,6 +16,7 @@ var modal_component_1 = require("./modals/modal.component");
 var modals_service_1 = require("./modals/modals.service");
 require("./assets/styles/angular-transistor.css");
 require("font-awesome/css/font-awesome.css");
+require("./assets/fonts/OpenSans/OpenSans-Regular.ttf");
 var AngularTransistorModule = (function () {
     function AngularTransistorModule() {
     }
@@ -23,7 +25,8 @@ var AngularTransistorModule = (function () {
 AngularTransistorModule = __decorate([
     core_1.NgModule({
         imports: [
-            common_1.CommonModule
+            common_1.CommonModule,
+            animations_1.BrowserAnimationsModule
         ],
         declarations: [
             tabs_component_1.TabsComponent,

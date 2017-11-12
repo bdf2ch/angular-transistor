@@ -1,19 +1,3 @@
-@font-face {
-  font-family: "Open Sans Regular";
-  src: url("/assets/OpenSans-Regular.ttf");
-}
-@font-face {
-  font-family: "Open Sans Italic";
-  src: url("../fonts/OpenSans/OpenSans-Italic.ttf");
-}
-@font-face {
-  font-family: "Open Sans Semi Bold";
-  src: url("../fonts/OpenSans/OpenSans-SemiBold.ttf");
-}
-@font-face {
-  font-family: "Open Sans Bold";
-  src: url("../fonts/OpenSans/OpenSans-Bold.ttf");
-}
 input[type='button'],
 button {
   display: inline-flex;
@@ -99,10 +83,4 @@ input[type='button'].round,
 button.round {
   width: 35px;
   border-radius: 50%;
-}
-html,
-body {
-  margin: 0px;
-  padding: 0px;
-  font-family: "Open Sans Regular";
 }

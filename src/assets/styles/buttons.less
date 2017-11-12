@@ -1,0 +1,82 @@
+@import (reference) 'colors';
+
+@button-height: 35px;
+@button-padding: 7px 10px;
+@button-border-radius: 4px;
+
+input[type='button'], button {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: @button-height;
+  padding: @button-padding;
+  background: transparent;
+  border-radius: @button-border-radius;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: background 0.2s ease-in;
+  -moz-transition: background 0.1s ease-in;
+  -ms-transition: background 0.1s ease-in;
+  -o-transition: background 0.1s ease-in;
+  transition: background 0.1s ease-in;
+
+  &.blue {
+    color: @color-blue-regular;
+    border: 1px solid @color-blue-regular;
+    &:hover {
+      color: white;
+      background: @color-blue-hover;
+      border: 1px solid @color-blue-hover;
+    }
+    &[disabled] {
+      color: @color-blue-disabled;
+      border: 1px solid @color-blue-disabled;
+      cursor: default;
+      &:hover {
+        background: transparent;
+      }
+    }
+  }
+
+  &.green {
+    color: @color-green-regular;
+    border: 1px solid @color-green-regular;
+    &:hover {
+      color: white;
+      background: @color-green-hover;
+      border: 1px solid @color-green-hover;
+    }
+    &[disabled] {
+      color: @color-green-disabled;
+      border: 1px solid @color-green-disabled;
+      cursor: default;
+      &:hover {
+        background: transparent;
+      }
+    }
+  }
+
+  &.red {
+    color: @color-red-regular;
+    border: 1px solid @color-red-regular;
+    &:hover {
+      color: white;
+      background: @color-red-hover;
+      border: 1px solid @color-red-hover;
+    }
+    &[disabled] {
+      color: @color-red-disabled;
+      border: 1px solid @color-red-disabled;
+      cursor: default;
+      &:hover {
+        background: transparent;
+      }
+    }
+  }
+
+  &.round {
+    width: @button-height;
+    border-radius: 50%;
+  }
+}

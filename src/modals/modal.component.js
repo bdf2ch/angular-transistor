@@ -10,17 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var animations_1 = require("@angular/animations");
 var modals_service_1 = require("./modals.service");
+var angular_transistor_config_1 = require("../angular-transistor.config");
 var ModalComponent = (function () {
     /**
-     *
+     * Constructor
      * @param {ModalsService} modals
      */
     function ModalComponent(modals) {
         this.modals = modals;
         /**/
         this.onClose = new core_1.EventEmitter();
+        this.width = angular_transistor_config_1.angularTransistorConfig.modalDefaultWidht;
+        this.height = angular_transistor_config_1.angularTransistorConfig.modalDefaultHeight;
+        this.depth = 0;
+        this.icon = null;
         this.isOpened = false;
+        this.status = 'hidden';
     }
     ;
     ModalComponent.prototype.ngOnInit = function () {
@@ -28,12 +35,20 @@ var ModalComponent = (function () {
     };
     ;
     ModalComponent.prototype.open = function () {
+        var _this = this;
         this.isOpened = true;
+        window.setTimeout(function () {
+            _this.status = 'shown';
+        }, 50);
     };
     ;
     ModalComponent.prototype.close = function () {
-        this.isOpened = false;
-        this.onClose.emit();
+        var _this = this;
+        this.status = 'hidden';
+        window.setTimeout(function () {
+            _this.isOpened = false;
+            _this.onClose.emit();
+        }, 200);
     };
     ;
     return ModalComponent;
@@ -59,6 +74,10 @@ __decorate([
     __metadata("design:type", Number)
 ], ModalComponent.prototype, "height", void 0);
 __decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ModalComponent.prototype, "icon", void 0);
+__decorate([
     core_1.Output(),
     __metadata("design:type", core_1.EventEmitter)
 ], ModalComponent.prototype, "onClose", void 0);
@@ -66,7 +85,29 @@ ModalComponent = __decorate([
     core_1.Component({
         selector: 'modal',
         templateUrl: './modal.component.html',
-        styleUrls: ['./modal.component.css']
+        styleUrls: ['./modal.component.css'],
+        animations: [
+            animations_1.trigger("fog", [
+                animations_1.state('shown', animations_1.style({
+                    background: 'rgba(0, 0, 0, 0.3)'
+                })),
+                animations_1.state('hidden', animations_1.style({
+                    background: 'rgba(0, 0, 0, 0.0)'
+                })),
+                animations_1.transition('hidden => shown', animations_1.animate("200ms linear")),
+                animations_1.transition('shown => hidden', animations_1.animate("200ms linear")),
+            ]),
+            animations_1.trigger("modal", [
+                animations_1.state('shown', animations_1.style({
+                    transform: 'scale(1.0)'
+                })),
+                animations_1.state('hidden', animations_1.style({
+                    transform: 'scale(0.01)'
+                })),
+                animations_1.transition('hidden => shown', animations_1.animate('100ms ease-in')),
+                animations_1.transition('shown => hidden', animations_1.animate('100ms ease-out')),
+            ])
+        ]
     }),
     __metadata("design:paramtypes", [modals_service_1.ModalsService])
 ], ModalComponent);

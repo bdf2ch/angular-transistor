@@ -31,8 +31,8 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-          exclude: helpers.root('src', 'assets'),
-          loader: 'file-loader?name=assets/[name].[hash].[ext]'
+          //exclude: helpers.root('src', 'assets'),
+          loader: 'file-loader?name=assets/[name].[ext]'
       },
       {
         test: /\.css$/,
@@ -44,6 +44,11 @@ module.exports = {
         include: helpers.root('src'),
         loader: 'raw-loader'
       },
+        {
+            test: /\.css$/,
+            include: helpers.root('src', 'assets', 'styles'),
+            loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader!less-loader' })
+        },
         {
             test: /\.less$/,
             include: helpers.root('src', 'app'),

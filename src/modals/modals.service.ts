@@ -19,7 +19,7 @@ export class ModalsService {
 
 
     /**
-     *
+     * Returns modal with specified if otherwise null
      * @param {string} modalId
      * @returns {ModalComponent}
      */

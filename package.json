@@ -44,6 +44,7 @@
   },
   "homepage": "https://github.com/bdf2ch/angular-transistor#readme",
   "dependencies": {
+    "@angular/animations": "^5.0.0",
     "@angular/common": "^4.4.6",
     "@angular/compiler": "^4.4.6",
     "@angular/core": "^4.4.6",

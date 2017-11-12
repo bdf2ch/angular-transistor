@@ -3,7 +3,7 @@
         <div class="tab"
              *ngFor="let tab of tabs"
              [ngClass]="{ 'selected': tab.isSelected, 'disabled': tab.disabled }"
-             [ngStyle]="{ 'width': tab.width + '%' }"
+             [ngStyle]="{ 'width': tab.width != 0 ? tab.width + '%' : 'auto' }"
              title="{{ tab.title }}"
              (click)="tab.select()">
             <i class="icon {{ tab.icon }}" *ngIf="tab.icon"></i>

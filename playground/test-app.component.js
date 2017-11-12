@@ -34,7 +34,21 @@ var TestAppComponent = (function () {
         this.tabs.get('lol').tab('test1').enable();
     };
     ;
-    TestAppComponent.prototype.openModal = function () { };
+    TestAppComponent.prototype.openModal = function () {
+        this.modals.get('test-modal').open();
+    };
+    ;
+    TestAppComponent.prototype.closeModal = function () {
+        this.modals.get('test-modal').close();
+    };
+    ;
+    TestAppComponent.prototype.openSecondModal = function () {
+        this.modals.get('second-test-modal').open();
+    };
+    ;
+    TestAppComponent.prototype.closeSecondModal = function () {
+        this.modals.get('second-test-modal').close();
+    };
     ;
     return TestAppComponent;
 }());

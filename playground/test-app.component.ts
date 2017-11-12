@@ -29,6 +29,20 @@ export class TestAppComponent {
     };
 
 
-    openModal(): void {};
+    openModal(): void {
+        this.modals.get('test-modal').open();
+    };
+
+    closeModal(): void {
+        this.modals.get('test-modal').close();
+    };
+
+    openSecondModal(): void {
+        this.modals.get('second-test-modal').open();
+    };
+
+    closeSecondModal(): void {
+        this.modals.get('second-test-modal').close();
+    };
 
 }
