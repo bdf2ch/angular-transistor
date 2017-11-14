@@ -19,8 +19,8 @@ input[type='button'], input[type='submit'], button {
   height: @button-height;
   padding: @button-padding;
   font-size: @button-font-size;
-  background: transparent;
-  color: @color-gray-regular;
+  background: @color-gray-regular;
+  color: white;
   border: 1px solid @color-gray-regular;
   border-radius: @button-border-radius;
   cursor: pointer;
@@ -32,69 +32,138 @@ input[type='button'], input[type='submit'], button {
   transition: background 0.1s ease-in;
 
   &:hover {
-    color: white;
     background: @color-gray-hover;
     border: 1px solid @color-gray-hover;
   }
   &[disabled] {
-    color: @color-gray-disabled;
-    border: 1px solid @color-gray-disabled;
+    color: @color-gray-regular;
+    background: @color-gray-disabled-background;
+    border: 1px solid @color-gray-disabled-background;
     cursor: default;
     &:hover {
+      background: @color-gray-disabled-background;
+    }
+  }
+
+  &.outline {
+    color: @color-gray-regular;
+    background: transparent;
+    border: 1px solid @color-gray-regular;
+    &:hover {
+      color: @color-gray-hover;
+      border: 1px solid @color-gray-hover;
+    }
+    &[disabled] {
+      color: @color-gray-disabled;
       background: transparent;
+      border: 1px solid @color-gray-disabled;
     }
   }
 
   &.blue {
-    color: @color-blue-regular;
+    color: white;
+    background: @color-blue-regular;
     border: 1px solid @color-blue-regular;
     &:hover {
-      color: white;
       background: @color-blue-hover;
       border: 1px solid @color-blue-hover;
     }
     &[disabled] {
-      color: @color-blue-disabled;
-      border: 1px solid @color-blue-disabled;
+      color: @color-blue-regular;
+      background: @color-blue-disabled-background;
+      border: 1px solid @color-blue-disabled-background;
       cursor: default;
       &:hover {
-        background: transparent;
+        background: @color-blue-disabled-background;
+      }
+    }
+
+    &.outline {
+      color: @color-blue-regular;
+      background: transparent;
+      border: 1px solid @color-blue-regular;
+      &:hover {
+        color: @color-blue-hover;
+        border: 1px solid @color-blue-hover;
+      }
+      &[disabled] {
+        color: @color-blue-disabled;
+        border: 1px solid @color-blue-disabled;
+        &:hover {
+          background: transparent;
+        }
       }
     }
   }
 
   &.green {
-    color: @color-green-regular;
+    color: white;
+    background: @color-green-regular;
     border: 1px solid @color-green-regular;
     &:hover {
-      color: white;
       background: @color-green-hover;
       border: 1px solid @color-green-hover;
     }
     &[disabled] {
-      color: @color-green-disabled;
-      border: 1px solid @color-green-disabled;
+      color: @color-green-regular;
+      background: @color-green-disabled-background;
+      border: 1px solid @color-green-disabled-background;
       cursor: default;
       &:hover {
-        background: transparent;
+        background: @color-green-disabled-background;
+      }
+    }
+
+    &.outline {
+      color: @color-green-regular;
+      background: transparent;
+      border: 1px solid @color-green-regular;
+      &:hover {
+        color: @color-green-hover;
+        border: 1px solid @color-green-hover;
+      }
+      &[disabled] {
+        color: @color-green-disabled;
+        border: 1px solid @color-green-disabled;
+        &:hover {
+          background: transparent;
+        }
       }
     }
   }
 
   &.red {
-    color: @color-red-regular;
+    color: white;
+    background: @color-red-regular;
     border: 1px solid @color-red-regular;
     &:hover {
-      color: white;
       background: @color-red-hover;
       border: 1px solid @color-red-hover;
     }
     &[disabled] {
-      color: @color-red-disabled;
-      border: 1px solid @color-red-disabled;
+      color: @color-red-regular;
+      background: @color-red-disabled-background;
+      border: 1px solid @color-red-disabled-background;
       cursor: default;
       &:hover {
-        background: transparent;
+        background: @color-red-disabled-background;
+      }
+    }
+
+    &.outline {
+      color: @color-red-regular;
+      background: transparent;
+      border: 1px solid @color-red-regular;
+      &:hover {
+        color: @color-red-hover;
+        border: 1px solid @color-red-hover;
+      }
+      &[disabled] {
+        color: @color-red-disabled;
+        border: 1px solid @color-red-disabled;
+        &:hover {
+          background: transparent;
+        }
       }
     }
   }

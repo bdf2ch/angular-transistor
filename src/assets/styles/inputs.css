@@ -15,7 +15,7 @@ input[type='number'] {
   padding: 7px 10px;
   box-sizing: border-box;
   font-family: 'Open Sans Regular';
-  color: #37474F;
+  color: #90A4AE;
   background: transparent;
   border: 1px solid #CFD8DC;
   border-radius: 4px;
@@ -34,25 +34,25 @@ input[type='number']:focus {
 input[type='text'][disabled],
 input[type='password'][disabled],
 input[type='number'][disabled] {
-  color: #B0BEC5;
+  color: #CFD8DC;
   background: #ECEFF1;
   border: 1px solid #ECEFF1;
 }
 input[type='text'].default-text,
 input[type='password'].default-text,
 input[type='number'].default-text {
-  color: #607D8B !important;
+  color: #B0BEC5 !important;
 }
 input[type='text'].blue,
 input[type='password'].blue,
 input[type='number'].blue {
-  color: #2196F3;
-  border: 1px solid #2196F3;
+  color: #90CAF9;
+  border: 1px solid #90CAF9;
 }
 input[type='text'].blue:focus,
 input[type='password'].blue:focus,
 input[type='number'].blue:focus {
-  border: 1px solid #1565C0;
+  border: 1px solid #64B5F6;
 }
 input[type='text'].blue[disabled],
 input[type='password'].blue[disabled],
@@ -64,13 +64,13 @@ input[type='number'].blue[disabled] {
 input[type='text'].green,
 input[type='password'].green,
 input[type='number'].green {
-  color: #4CAF50;
-  border: 1px solid #4CAF50;
+  color: #A5D6A7;
+  border: 1px solid #A5D6A7;
 }
 input[type='text'].green:focus,
 input[type='password'].green:focus,
 input[type='number'].green:focus {
-  border: 1px solid #2E7D32;
+  border: 1px solid #81C784;
 }
 input[type='text'].green[disabled],
 input[type='password'].green[disabled],
@@ -82,13 +82,13 @@ input[type='number'].green[disabled] {
 input[type='text'].red,
 input[type='password'].red,
 input[type='number'].red {
-  color: #F44336;
-  border: 1px solid #F44336;
+  color: #EF9A9A;
+  border: 1px solid #EF9A9A;
 }
 input[type='text'].red:focus,
 input[type='password'].red:focus,
 input[type='number'].red:focus {
-  border: 1px solid #C62828;
+  border: 1px solid #E57373;
 }
 input[type='text'].red[disabled],
 input[type='password'].red[disabled],

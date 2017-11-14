@@ -32,7 +32,7 @@
   flex-shrink: 0;
   height: 60px;
   box-sizing: border-box;
-  background: #03A9F4;
+  background: #64B5F6;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
 }
@@ -84,6 +84,8 @@
 }
 .modal-component .modal .content {
   overflow: auto;
+  position: relative;
   display: flex;
+  height: 100%;
   box-sizing: border-box;
 }
