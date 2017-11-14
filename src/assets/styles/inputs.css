@@ -1,0 +1,99 @@
+/* Input height */
+/* Input padding */
+/* Input font family */
+/* Input background color */
+/* Disabled input background color */
+/* Input border color */
+/* Focused input border color */
+/* Disabled input border color */
+/* Input border radius */
+input[type='text'],
+input[type='password'],
+input[type='number'] {
+  display: inline-flex;
+  height: 30px;
+  padding: 7px 10px;
+  box-sizing: border-box;
+  font-family: 'Open Sans Regular';
+  color: #37474F;
+  background: transparent;
+  border: 1px solid #CFD8DC;
+  border-radius: 4px;
+  outline: none;
+  -webkit-transition: border 0.2s linear;
+  -moz-transition: border 0.2s linear;
+  -ms-transition: border 0.2s linear;
+  -o-transition: border 0.2s linear;
+  transition: border 0.2s linear;
+}
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='number']:focus {
+  border: 1px solid #B0BEC5;
+}
+input[type='text'][disabled],
+input[type='password'][disabled],
+input[type='number'][disabled] {
+  color: #B0BEC5;
+  background: #ECEFF1;
+  border: 1px solid #ECEFF1;
+}
+input[type='text'].default-text,
+input[type='password'].default-text,
+input[type='number'].default-text {
+  color: #607D8B !important;
+}
+input[type='text'].blue,
+input[type='password'].blue,
+input[type='number'].blue {
+  color: #2196F3;
+  border: 1px solid #2196F3;
+}
+input[type='text'].blue:focus,
+input[type='password'].blue:focus,
+input[type='number'].blue:focus {
+  border: 1px solid #1565C0;
+}
+input[type='text'].blue[disabled],
+input[type='password'].blue[disabled],
+input[type='number'].blue[disabled] {
+  color: #90CAF9;
+  background: #E3F2FD;
+  border: 1px solid #E3F2FD;
+}
+input[type='text'].green,
+input[type='password'].green,
+input[type='number'].green {
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+}
+input[type='text'].green:focus,
+input[type='password'].green:focus,
+input[type='number'].green:focus {
+  border: 1px solid #2E7D32;
+}
+input[type='text'].green[disabled],
+input[type='password'].green[disabled],
+input[type='number'].green[disabled] {
+  color: #A5D6A7;
+  background: #E8F5E9;
+  border: 1px solid #E8F5E9;
+}
+input[type='text'].red,
+input[type='password'].red,
+input[type='number'].red {
+  color: #F44336;
+  border: 1px solid #F44336;
+}
+input[type='text'].red:focus,
+input[type='password'].red:focus,
+input[type='number'].red:focus {
+  border: 1px solid #C62828;
+}
+input[type='text'].red[disabled],
+input[type='password'].red[disabled],
+input[type='number'].red[disabled] {
+  color: #EF9A9A;
+  background: #FFEBEE;
+  border: 1px solid #FFEBEE;
+}

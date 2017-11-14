@@ -1,17 +1,27 @@
 @import (reference) 'colors';
 
-@button-height: 35px;
+/* Button height */
+@button-height: 30px;
+/* Button font size */
+@button-font-size: 12px;
+/* Button padding */
 @button-padding: 7px 10px;
+@button-font-family: 'Open Sans Regular';
+/* Button border radius */
 @button-border-radius: 4px;
 
-input[type='button'], button {
+
+input[type='button'], input[type='submit'], button {
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   height: @button-height;
   padding: @button-padding;
+  font-size: @button-font-size;
   background: transparent;
+  color: @color-gray-regular;
+  border: 1px solid @color-gray-regular;
   border-radius: @button-border-radius;
   cursor: pointer;
   outline: none;
@@ -20,6 +30,20 @@ input[type='button'], button {
   -ms-transition: background 0.1s ease-in;
   -o-transition: background 0.1s ease-in;
   transition: background 0.1s ease-in;
+
+  &:hover {
+    color: white;
+    background: @color-gray-hover;
+    border: 1px solid @color-gray-hover;
+  }
+  &[disabled] {
+    color: @color-gray-disabled;
+    border: 1px solid @color-gray-disabled;
+    cursor: default;
+    &:hover {
+      background: transparent;
+    }
+  }
 
   &.blue {
     color: @color-blue-regular;

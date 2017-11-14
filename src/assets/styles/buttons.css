@@ -1,12 +1,20 @@
+/* Button height */
+/* Button font size */
+/* Button padding */
+/* Button border radius */
 input[type='button'],
+input[type='submit'],
 button {
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 35px;
+  height: 30px;
   padding: 7px 10px;
+  font-size: 12px;
   background: transparent;
+  color: #607D8B;
+  border: 1px solid #607D8B;
   border-radius: 4px;
   cursor: pointer;
   outline: none;
@@ -16,71 +24,103 @@ button {
   -o-transition: background 0.1s ease-in;
   transition: background 0.1s ease-in;
 }
+input[type='button']:hover,
+input[type='submit']:hover,
+button:hover {
+  color: white;
+  background: #37474F;
+  border: 1px solid #37474F;
+}
+input[type='button'][disabled],
+input[type='submit'][disabled],
+button[disabled] {
+  color: #B0BEC5;
+  border: 1px solid #B0BEC5;
+  cursor: default;
+}
+input[type='button'][disabled]:hover,
+input[type='submit'][disabled]:hover,
+button[disabled]:hover {
+  background: transparent;
+}
 input[type='button'].blue,
+input[type='submit'].blue,
 button.blue {
   color: #2196F3;
   border: 1px solid #2196F3;
 }
 input[type='button'].blue:hover,
+input[type='submit'].blue:hover,
 button.blue:hover {
   color: white;
   background: #1565C0;
   border: 1px solid #1565C0;
 }
 input[type='button'].blue[disabled],
+input[type='submit'].blue[disabled],
 button.blue[disabled] {
   color: #90CAF9;
   border: 1px solid #90CAF9;
   cursor: default;
 }
 input[type='button'].blue[disabled]:hover,
+input[type='submit'].blue[disabled]:hover,
 button.blue[disabled]:hover {
   background: transparent;
 }
 input[type='button'].green,
+input[type='submit'].green,
 button.green {
   color: #4CAF50;
   border: 1px solid #4CAF50;
 }
 input[type='button'].green:hover,
+input[type='submit'].green:hover,
 button.green:hover {
   color: white;
   background: #2E7D32;
   border: 1px solid #2E7D32;
 }
 input[type='button'].green[disabled],
+input[type='submit'].green[disabled],
 button.green[disabled] {
   color: #A5D6A7;
   border: 1px solid #A5D6A7;
   cursor: default;
 }
 input[type='button'].green[disabled]:hover,
+input[type='submit'].green[disabled]:hover,
 button.green[disabled]:hover {
   background: transparent;
 }
 input[type='button'].red,
+input[type='submit'].red,
 button.red {
   color: #F44336;
   border: 1px solid #F44336;
 }
 input[type='button'].red:hover,
+input[type='submit'].red:hover,
 button.red:hover {
   color: white;
   background: #C62828;
   border: 1px solid #C62828;
 }
 input[type='button'].red[disabled],
+input[type='submit'].red[disabled],
 button.red[disabled] {
   color: #EF9A9A;
   border: 1px solid #EF9A9A;
   cursor: default;
 }
 input[type='button'].red[disabled]:hover,
+input[type='submit'].red[disabled]:hover,
 button.red[disabled]:hover {
   background: transparent;
 }
 input[type='button'].round,
+input[type='submit'].round,
 button.round {
-  width: 35px;
+  width: 30px;
   border-radius: 50%;
 }

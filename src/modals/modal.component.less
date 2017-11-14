@@ -45,6 +45,7 @@
       flex-direction: row;
       //justify-content: flex-start;
       align-items: center;
+      flex-shrink: 0;
       height: @header-height;
       box-sizing: border-box;
       background: @header-background-color;
@@ -105,6 +106,11 @@
         cursor: pointer;
       }
     }
-    .content {}
+
+    .content {
+      overflow: auto;
+      display: flex;
+      box-sizing: border-box;
+    }
   }
 }

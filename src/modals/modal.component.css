@@ -29,6 +29,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-shrink: 0;
   height: 60px;
   box-sizing: border-box;
   background: #03A9F4;
@@ -80,4 +81,9 @@
   color: white;
   text-align: center;
   cursor: pointer;
+}
+.modal-component .modal .content {
+  overflow: auto;
+  display: flex;
+  box-sizing: border-box;
 }

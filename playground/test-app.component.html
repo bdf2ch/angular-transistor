@@ -4,6 +4,12 @@
         <tab [id]="'buttons-tab'" [caption]="'buttons'" [icon]="'fa fa-button'">
             <div style="padding: 20px;">
                 <div style="margin-bottom: 20px;">
+                    <button class="gray">sample button</button>
+                    <button class="gray"><i class="fa fa-search"></i></button>
+                    <button class="gray" disabled>sample button</button>
+                    <button class="round gray"><i class="fa fa-gears"></i></button>
+                </div>
+                <div style="margin-bottom: 20px;">
                     <button class="blue">sample button</button>
                     <button class="blue"><i class="fa fa-search"></i></button>
                     <button class="blue" disabled>sample button</button>
@@ -24,25 +30,73 @@
             </div>
         </tab>
 
+        <tab [id]="'inputs-tab'" [caption]="'inputs'" [icon]="'fa fa-pencil'">
+            <div style="padding: 20px;">
+                <div style="margin-bottom: 20px;">
+                    <input type="text">
+                    <input type="text" disabled value="disabled input">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <input class="blue" type="text">
+                    <input class="blue" type="text" disabled value="disabled input">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <input class="green" type="text">
+                    <input class="green" type="text" disabled value="disabled input">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <input class="red default-text" type="text">
+                    <input class="red" type="text" disabled value="disabled input">
+                </div>
+            </div>
+        </tab>
+
         <tab [id]="'test1'" [caption]="'tabs'" [icon]="'fa fa-globe'" [title]="'tabs example'">
             <div style="padding: 20px;">
                 <button class="blue" (click)="selectFirstTab()">select first tab</button>
                 <button class="green" (click)="selectThirdTab()">select third tab</button>
-                <button (click)="disableFirstTab()">disable first tab</button>
-                <button (click)="enableFirstTab()">enable first tab</button>
+                <button class="gray" (click)="disableFirstTab()">disable first tab</button>
+                <button class="gray" (click)="enableFirstTab()">enable first tab</button>
             </div>
         </tab>
 
         <tab [id]="'test2'" [caption]="'modals'" [icon]="'fa fa-window-maximize'" [title]="'modals example'">
             <div style="padding: 20px;">
                 <modal [id]="'test-modal'" [caption]="'test modal caption'" [depth]="1" [icon]="'fa fa-globe'">
-                    <tabs [id]="'second-tabs'">
-                        <tab [id]="'test1'" [caption]="'test tab 1'" [width]="50">first test tab</tab>
-                        <tab [id]="'test2'" [caption]="'test tab 2'" [width]="50">second test tab</tab>
-                    </tabs>
-                    <div style="padding: 20px;">
-                        <button (click)="openSecondModal()">open second modal</button>
-                        <button (click)="closeModal()">close modal</button>
+                    <div class="column width-100">
+                        <tabs [id]="'second-tabs'">
+                            <tab [id]="'test1'" [caption]="'test tab 1'" [width]="50">
+                                <div class="column padding-20">
+                                    <div class="row width-100 margin-bottom-20">
+                                        <input class="width-100" type="text">
+                                    </div>
+                                    <div class="row width-100 margin-bottom-20">
+                                        <input class="width-100" type="text">
+                                    </div>
+                                    <div class="row width-100 margin-bottom-20">
+                                        <input class="width-100" type="text">
+                                    </div>
+                                    <div class="row width-100 margin-bottom-20">
+                                        <input class="width-100" type="text">
+                                    </div>
+                                    <div class="row width-100 horizontal-between margin-bottom-20">
+                                        <button class="green width-50 margin-right-5">ok button</button>
+                                        <button class="red width-50 margin-left-5">cancel button</button>
+                                    </div>
+                                    <div class="column">
+                                        <button class="gray width-100 margin-bottom-5" (click)="openSecondModal()">
+                                            <i class="fa fa-window-maximize margin-right-10"></i>
+                                            open second modal
+                                        </button>
+                                        <button class="gray width-100" (click)="closeModal()">
+                                            <i class="fa fa-window-minimize margin-right-10"></i>
+                                            close modal
+                                        </button>
+                                    </div>
+                                </div>
+                            </tab>
+                            <tab [id]="'test2'" [caption]="'test tab 2'" [width]="50">second test tab</tab>
+                        </tabs>
                     </div>
                 </modal>
                 <modal [id]="'second-test-modal'" [caption]="'second test modal with long text with ellipsis'" [width]="300" [height]="200" [depth]="2">
@@ -51,10 +105,12 @@
                         <button (click)="closeSecondModal()">close second modal</button>
                     </div>
                 </modal>
-                <button (click)="openModal()">open modal</button>
-                <button (click)="openSecondModal()">open second modal</button>
+                <button class="gray" (click)="openModal()">open modal</button>
+                <button class="gray" (click)="openSecondModal()">open second modal</button>
             </div>
         </tab>
+
+
 
         <tab [id]="'test3'" [caption]="'tab 3'" [icon]="'fa fa-gears'" [title]="'tab 3 title'">
             <div style="padding: 20px;">
