@@ -17,6 +17,7 @@
 /* Button height */
 /* Button font size */
 /* Button padding */
+/* Button font family */
 /* Button border radius */
 input[type='button'],
 input[type='submit'],
@@ -27,7 +28,9 @@ button {
   align-items: center;
   height: 30px;
   padding: 7px 10px;
+  box-sizing: border-box;
   font-size: 12px;
+  line-height: 12px;
   background: #B0BEC5;
   color: white;
   border: 1px solid #B0BEC5;
@@ -58,6 +61,11 @@ input[type='button'][disabled]:hover,
 input[type='submit'][disabled]:hover,
 button[disabled]:hover {
   background: #ECEFF1;
+}
+input[type='button'][disabled] .fa,
+input[type='submit'][disabled] .fa,
+button[disabled] .fa {
+  display: flex;
 }
 input[type='button'].outline,
 input[type='submit'].outline,
@@ -368,6 +376,30 @@ input[type='number'].red[disabled] {
 .column {
   display: flex;
   flex-direction: column;
+}
+.column.horizontal-left {
+  align-items: flex-start;
+}
+.column.horizontal-right {
+  align-items: flex-end;
+}
+.column.horizontal-center {
+  align-items: center;
+}
+.column.horizontal-stretch {
+  align-items: stretch;
+}
+.column.vertical-top {
+  justify-content: flex-start;
+}
+.column.vertical-bottom {
+  justify-content: flex-end;
+}
+.column.vertical-center {
+  justify-content: center;
+}
+.column.vertical-stretch {
+  justify-content: stretch;
 }
 .cell {
   display: flex;

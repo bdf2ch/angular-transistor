@@ -13,6 +13,7 @@
   background: rgba(0, 0, 0, 0);
 }
 .modal-component .modal {
+  position: relative;
   display: flex;
   flex-direction: column;
   background: white;
@@ -23,6 +24,20 @@
   -ms-transform: scale(0.01);
   -o-transform: scale(0.01);
   transform: scale(0.01);
+}
+.modal-component .modal .headerless-close-button {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: -35px;
+  right: -35px;
+  width: 40px;
+  font-size: 25px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
 }
 .modal-component .modal .header {
   overflow: hidden;

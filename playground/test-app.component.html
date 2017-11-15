@@ -70,10 +70,10 @@
 
         <tab [id]="'test2'" [caption]="'modals'" [icon]="'fa fa-window-maximize'" [title]="'modals example'">
             <div style="padding: 20px;">
-                <modal [id]="'test-modal'" [caption]="'test modal caption'" [depth]="1" [icon]="'fa fa-globe'">
+                <modal [id]="'test-modal'" [header]="true" [caption]="'test modal caption'" [depth]="1" [icon]="'fa fa-globe'">
                     <div class="column width-100">
                         <tabs [id]="'second-tabs'">
-                            <tab [id]="'test1'" [caption]="'test tab 1'" [width]="50">
+                            <tab [id]="'test1'" [caption]="'test tab one'" [width]="50">
                                 <div class="column padding-20">
                                     <div class="row width-100 margin-bottom-15">
                                         <input class="width-100" type="text">
@@ -103,14 +103,14 @@
                                     </div>
                                 </div>
                             </tab>
-                            <tab [id]="'test2'" [caption]="'test tab 2'" [width]="50">second test tab</tab>
+                            <tab [id]="'test2'" [caption]="'test tab two'" [width]="50">second test tab</tab>
                         </tabs>
                     </div>
                 </modal>
-                <modal [id]="'second-test-modal'" [caption]="'second test modal with long text with ellipsis'" [width]="300" [height]="200" [depth]="2">
-                    <div style="padding: 20px;">
-                        <button (click)="openModal()">open modal</button>
-                        <button (click)="closeSecondModal()">close second modal</button>
+                <modal [id]="'second-test-modal'" [header]="false" [caption]="'second test modal with long text with ellipsis'" [width]="300" [height]="200" [depth]="2">
+                    <div class="column width-100 padding-20 horizontal-center vertical-center">
+                        <button class="blue outline width-80 margin-bottom-10" (click)="openModal()">open first modal</button>
+                        <button class="blue outline width-80" (click)="closeSecondModal()">close second modal</button>
                     </div>
                 </modal>
                 <button class="gray" (click)="openModal()">open modal</button>

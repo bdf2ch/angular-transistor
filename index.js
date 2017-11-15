@@ -1,4 +1,10 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var angular_transistor_module_1 = require("./src/angular-transistor.module");
 exports.AngularTransistorModule = angular_transistor_module_1.AngularTransistorModule;
+var tabs_component_1 = require("./src/tabs/tabs.component");
+exports.TabsComponent = tabs_component_1.TabsComponent;
+var tab_component_1 = require("./src/tabs/tab/tab.component");
+exports.TabComponent = tab_component_1.TabComponent;
+var tabs_service_1 = require("./src/tabs/tabs.service");
+exports.TabsService = tabs_service_1.TabsService;

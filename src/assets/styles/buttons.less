@@ -1,11 +1,13 @@
 @import (reference) 'colors';
 
+
 /* Button height */
 @button-height: 30px;
 /* Button font size */
 @button-font-size: 12px;
 /* Button padding */
 @button-padding: 7px 10px;
+/* Button font family */
 @button-font-family: 'Open Sans Regular';
 /* Button border radius */
 @button-border-radius: 4px;
@@ -18,7 +20,9 @@ input[type='button'], input[type='submit'], button {
   align-items: center;
   height: @button-height;
   padding: @button-padding;
+  box-sizing: border-box;
   font-size: @button-font-size;
+  line-height: @button-font-size;
   background: @color-gray-regular;
   color: white;
   border: 1px solid @color-gray-regular;
@@ -42,6 +46,10 @@ input[type='button'], input[type='submit'], button {
     cursor: default;
     &:hover {
       background: @color-gray-disabled-background;
+    }
+
+    .fa {
+      display: flex;
     }
   }
 

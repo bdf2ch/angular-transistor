@@ -25,6 +25,7 @@ var ModalComponent = (function () {
         this.width = angular_transistor_config_1.angularTransistorConfig.modalDefaultWidht;
         this.height = angular_transistor_config_1.angularTransistorConfig.modalDefaultHeight;
         this.depth = 0;
+        this.header = true;
         this.icon = null;
         this.isOpened = false;
         this.status = 'hidden';
@@ -59,10 +60,6 @@ __decorate([
 ], ModalComponent.prototype, "id", void 0);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", String)
-], ModalComponent.prototype, "caption", void 0);
-__decorate([
-    core_1.Input(),
     __metadata("design:type", Number)
 ], ModalComponent.prototype, "depth", void 0);
 __decorate([
@@ -73,6 +70,14 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Number)
 ], ModalComponent.prototype, "height", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], ModalComponent.prototype, "header", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ModalComponent.prototype, "caption", void 0);
 __decorate([
     core_1.Input(),
     __metadata("design:type", String)

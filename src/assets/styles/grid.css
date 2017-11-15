@@ -33,6 +33,30 @@
   display: flex;
   flex-direction: column;
 }
+.column.horizontal-left {
+  align-items: flex-start;
+}
+.column.horizontal-right {
+  align-items: flex-end;
+}
+.column.horizontal-center {
+  align-items: center;
+}
+.column.horizontal-stretch {
+  align-items: stretch;
+}
+.column.vertical-top {
+  justify-content: flex-start;
+}
+.column.vertical-bottom {
+  justify-content: flex-end;
+}
+.column.vertical-center {
+  justify-content: center;
+}
+.column.vertical-stretch {
+  justify-content: stretch;
+}
 .cell {
   display: flex;
 }

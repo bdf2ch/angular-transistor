@@ -35,14 +35,17 @@ export class ModalComponent implements  OnInit {
 
     /* Modal id */
     @Input() id: string;
-    /* Modal header caption */
-    @Input() caption: string;
+
     /* Modal z-index */
     @Input() depth: number;
     /* Modal width */
     @Input() width: number;
     /* Modal height */
     @Input() height: number;
+    /* Modal header */
+    @Input() header: boolean;
+    /* Modal header caption */
+    @Input() caption: string;
     /* Modal header icon */
     @Input() icon: string | null;
     /**/
@@ -61,6 +64,7 @@ export class ModalComponent implements  OnInit {
         this.width = angularTransistorConfig.modalDefaultWidht;
         this.height = angularTransistorConfig.modalDefaultHeight;
         this.depth = 0;
+        this.header = true;
         this.icon = null;
         this.isOpened = false;
         this.status = 'hidden';

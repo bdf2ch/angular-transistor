@@ -42,6 +42,38 @@
 .column {
   display: flex;
   flex-direction: column;
+
+  &.horizontal-left {
+    align-items: flex-start;
+  }
+
+  &.horizontal-right {
+    align-items: flex-end;
+  }
+
+  &.horizontal-center {
+    align-items: center;
+  }
+
+  &.horizontal-stretch {
+    align-items: stretch;
+  }
+
+  &.vertical-top {
+    justify-content: flex-start;
+  }
+
+  &.vertical-bottom {
+    justify-content: flex-end;
+  }
+
+  &.vertical-center {
+    justify-content: center;
+  }
+
+  &.vertical-stretch {
+    justify-content: stretch;
+  }
 }
 
 
