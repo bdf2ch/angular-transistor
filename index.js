@@ -8,3 +8,7 @@ var tab_component_1 = require("./src/tabs/tab/tab.component");
 exports.TabComponent = tab_component_1.TabComponent;
 var tabs_service_1 = require("./src/tabs/tabs.service");
 exports.TabsService = tabs_service_1.TabsService;
+var modal_component_1 = require("./src/modals/modal.component");
+exports.ModalComponent = modal_component_1.ModalComponent;
+var modals_service_1 = require("./src/modals/modals.service");
+exports.ModalsService = modals_service_1.ModalsService;
