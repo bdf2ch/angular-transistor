@@ -44,12 +44,12 @@
   },
   "homepage": "https://github.com/bdf2ch/angular-transistor#readme",
   "dependencies": {
-    "@angular/animations": "*4.0.0",
-    "@angular/common": "*4.0.0",
-    "@angular/compiler": "*4.0.0",
-    "@angular/core": "*4.0.0",
-    "@angular/platform-browser": "*4.0.0",
-    "@angular/platform-browser-dynamic": "*4.0.0",
+    "@angular/animations": "^4.0.0",
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
     "font-awesome": "^4.7.0",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.18"
