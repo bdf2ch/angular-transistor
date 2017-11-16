@@ -44,6 +44,7 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+.idea/
 /node_modules/
 /playground/
 /dist
