@@ -9,7 +9,7 @@ import { TabsComponent } from '../tabs.component';
 })
 export class TabComponent implements OnInit {
     /* Tab id */
-    @Input() id: string;
+    @Input() id: string | null;
     /* Tab caption */
     @Input() caption: string;
     /* Tab icon */
@@ -38,9 +38,10 @@ export class TabComponent implements OnInit {
      */
     constructor(@Optional() @Host() private parent: TabsComponent) {
         if (!this.parent) {
-            console.error('angular-transistor: \'tab\' component must be used only inside \'tabs\' component');
+            console.error('angular-transistor: \'tab\' component must be used only inside parent \'tabs\' component');
             return;
         }
+        this.id = null;
         this.width = 0;
         this.disabled = false;
         this.isSelected = false;
@@ -52,7 +53,11 @@ export class TabComponent implements OnInit {
      * Registering tab on parent tabs component.
      */
     ngOnInit(): void {
-        if (this.parent) {
+        console.log('id = ', this.id);
+        if (!this.id) {
+            console.error('angular-transistor: tab \'id\' input parameter must be specified');
+        }
+        if (this.parent && this.id) {
             this.parent.registerTab(this);
         }
     };

@@ -3,21 +3,29 @@
 /* Button padding */
 /* Button font family */
 /* Button border radius */
-input[type='button'],
-input[type='submit'],
-button {
+/**
+* Color button mixin
+* @color-regular - button background-color
+* @color-hover - button background color when hovered
+* @color-disabled-background - button background color when disabled
+* @color-font - button font-color
+**/
+/**
+* Outline button mixin
+* @color-regular - button border and text color
+* @color-hover - button border and text color when hovered
+* @color-disabled - button border and text color when disabled
+ */
+.btn {
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 30px;
+  min-width: 32px;
   padding: 7px 10px;
   box-sizing: border-box;
   font-size: 12px;
   line-height: 12px;
-  background: #B0BEC5;
-  color: white;
-  border: 1px solid #B0BEC5;
   border-radius: 4px;
   cursor: pointer;
   outline: none;
@@ -26,204 +34,201 @@ button {
   -ms-transition: background 0.1s ease-in;
   -o-transition: background 0.1s ease-in;
   transition: background 0.1s ease-in;
+  background: #B0BEC5;
+  color: white;
+  border: 1px solid #B0BEC5;
+  height: 32px;
+  /**
+  * Disabled button
+  **/
+  /**
+  * Outline button
+  **/
+  /**
+  * Round button
+  **/
+  /**
+  * Blue button
+  **/
+  /**
+  * Green button
+  **/
+  /**
+  * Red button
+  **/
+  /**
+  * Small button
+  **/
+  /**
+  * Medium button
+  **/
+  /**
+  * Big button
+  **/
 }
-input[type='button']:hover,
-input[type='submit']:hover,
-button:hover {
+.btn:hover {
   background: #90A4AE;
   border: 1px solid #90A4AE;
 }
-input[type='button'][disabled],
-input[type='submit'][disabled],
-button[disabled] {
+.btn[disabled] {
   color: #B0BEC5;
   background: #ECEFF1;
   border: 1px solid #ECEFF1;
-  cursor: default;
 }
-input[type='button'][disabled]:hover,
-input[type='submit'][disabled]:hover,
-button[disabled]:hover {
+.btn[disabled]:hover {
   background: #ECEFF1;
 }
-input[type='button'][disabled] .fa,
-input[type='submit'][disabled] .fa,
-button[disabled] .fa {
-  display: flex;
+.btn[disabled] {
+  cursor: default;
 }
-input[type='button'].outline,
-input[type='submit'].outline,
-button.outline {
+.btn.outline {
   color: #B0BEC5;
   background: transparent;
   border: 1px solid #B0BEC5;
 }
-input[type='button'].outline:hover,
-input[type='submit'].outline:hover,
-button.outline:hover {
+.btn.outline:hover {
   color: #90A4AE;
+  background: transparent;
   border: 1px solid #90A4AE;
 }
-input[type='button'].outline[disabled],
-input[type='submit'].outline[disabled],
-button.outline[disabled] {
+.btn.outline[disabled] {
   color: #CFD8DC;
   background: transparent;
   border: 1px solid #CFD8DC;
 }
-input[type='button'].blue,
-input[type='submit'].blue,
-button.blue {
-  color: white;
+.btn.outline[disabled]:hover {
+  background: transparent;
+}
+.btn.round {
+  border-radius: 50%;
+}
+.btn.blue {
   background: #90CAF9;
+  color: white;
   border: 1px solid #90CAF9;
 }
-input[type='button'].blue:hover,
-input[type='submit'].blue:hover,
-button.blue:hover {
+.btn.blue:hover {
   background: #64B5F6;
   border: 1px solid #64B5F6;
 }
-input[type='button'].blue[disabled],
-input[type='submit'].blue[disabled],
-button.blue[disabled] {
+.btn.blue[disabled] {
   color: #90CAF9;
   background: #E3F2FD;
   border: 1px solid #E3F2FD;
-  cursor: default;
 }
-input[type='button'].blue[disabled]:hover,
-input[type='submit'].blue[disabled]:hover,
-button.blue[disabled]:hover {
+.btn.blue[disabled]:hover {
   background: #E3F2FD;
 }
-input[type='button'].blue.outline,
-input[type='submit'].blue.outline,
-button.blue.outline {
+.btn.blue.outline {
   color: #90CAF9;
   background: transparent;
   border: 1px solid #90CAF9;
 }
-input[type='button'].blue.outline:hover,
-input[type='submit'].blue.outline:hover,
-button.blue.outline:hover {
+.btn.blue.outline:hover {
   color: #64B5F6;
+  background: transparent;
   border: 1px solid #64B5F6;
 }
-input[type='button'].blue.outline[disabled],
-input[type='submit'].blue.outline[disabled],
-button.blue.outline[disabled] {
+.btn.blue.outline[disabled] {
   color: #BBDEFB;
+  background: transparent;
   border: 1px solid #BBDEFB;
 }
-input[type='button'].blue.outline[disabled]:hover,
-input[type='submit'].blue.outline[disabled]:hover,
-button.blue.outline[disabled]:hover {
+.btn.blue.outline[disabled]:hover {
   background: transparent;
 }
-input[type='button'].green,
-input[type='submit'].green,
-button.green {
-  color: white;
+.btn.green {
   background: #A5D6A7;
+  color: white;
   border: 1px solid #A5D6A7;
 }
-input[type='button'].green:hover,
-input[type='submit'].green:hover,
-button.green:hover {
+.btn.green:hover {
   background: #81C784;
   border: 1px solid #81C784;
 }
-input[type='button'].green[disabled],
-input[type='submit'].green[disabled],
-button.green[disabled] {
+.btn.green[disabled] {
   color: #A5D6A7;
   background: #E8F5E9;
   border: 1px solid #E8F5E9;
-  cursor: default;
 }
-input[type='button'].green[disabled]:hover,
-input[type='submit'].green[disabled]:hover,
-button.green[disabled]:hover {
+.btn.green[disabled]:hover {
   background: #E8F5E9;
 }
-input[type='button'].green.outline,
-input[type='submit'].green.outline,
-button.green.outline {
+.btn.green.outline {
   color: #A5D6A7;
   background: transparent;
   border: 1px solid #A5D6A7;
 }
-input[type='button'].green.outline:hover,
-input[type='submit'].green.outline:hover,
-button.green.outline:hover {
+.btn.green.outline:hover {
   color: #81C784;
+  background: transparent;
   border: 1px solid #81C784;
 }
-input[type='button'].green.outline[disabled],
-input[type='submit'].green.outline[disabled],
-button.green.outline[disabled] {
-  color: #C8E6C9;
-  border: 1px solid #C8E6C9;
+.btn.green.outline[disabled] {
+  color: #E8F5E9;
+  background: transparent;
+  border: 1px solid #E8F5E9;
 }
-input[type='button'].green.outline[disabled]:hover,
-input[type='submit'].green.outline[disabled]:hover,
-button.green.outline[disabled]:hover {
+.btn.green.outline[disabled]:hover {
   background: transparent;
 }
-input[type='button'].red,
-input[type='submit'].red,
-button.red {
-  color: white;
+.btn.red {
   background: #EF9A9A;
+  color: white;
   border: 1px solid #EF9A9A;
 }
-input[type='button'].red:hover,
-input[type='submit'].red:hover,
-button.red:hover {
+.btn.red:hover {
   background: #E57373;
   border: 1px solid #E57373;
 }
-input[type='button'].red[disabled],
-input[type='submit'].red[disabled],
-button.red[disabled] {
+.btn.red[disabled] {
   color: #EF9A9A;
   background: #FFEBEE;
   border: 1px solid #FFEBEE;
-  cursor: default;
 }
-input[type='button'].red[disabled]:hover,
-input[type='submit'].red[disabled]:hover,
-button.red[disabled]:hover {
+.btn.red[disabled]:hover {
   background: #FFEBEE;
 }
-input[type='button'].red.outline,
-input[type='submit'].red.outline,
-button.red.outline {
+.btn.red.outline {
   color: #EF9A9A;
   background: transparent;
   border: 1px solid #EF9A9A;
 }
-input[type='button'].red.outline:hover,
-input[type='submit'].red.outline:hover,
-button.red.outline:hover {
+.btn.red.outline:hover {
   color: #E57373;
+  background: transparent;
   border: 1px solid #E57373;
 }
-input[type='button'].red.outline[disabled],
-input[type='submit'].red.outline[disabled],
-button.red.outline[disabled] {
-  color: #FFCDD2;
-  border: 1px solid #FFCDD2;
+.btn.red.outline[disabled] {
+  color: #FFEBEE;
+  background: transparent;
+  border: 1px solid #FFEBEE;
 }
-input[type='button'].red.outline[disabled]:hover,
-input[type='submit'].red.outline[disabled]:hover,
-button.red.outline[disabled]:hover {
+.btn.red.outline[disabled]:hover {
   background: transparent;
 }
-input[type='button'].round,
-input[type='submit'].round,
-button.round {
-  width: 30px;
-  border-radius: 50%;
+.btn.small {
+  height: 25px;
+  min-width: 25px;
+  padding: 5px;
+  font-size: 11px;
+  line-height: 11px;
+}
+.btn.small .round {
+  width: 25px;
+}
+.btn.small .fa {
+  font-size: 10px;
+}
+.btn.medium {
+  height: 39px;
+  min-width: 39px;
+  font-size: 13px;
+  line-height: 13px;
+}
+.btn.big {
+  height: 47px;
+  min-width: 47px;
+  font-size: 14px;
+  line-height: 14px;
 }

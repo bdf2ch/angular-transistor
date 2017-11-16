@@ -1,7 +1,9 @@
+@import (reference) 'sizes';
 @import (reference) 'colors';
 
 
 /* Button height */
+//TODO remove button height
 @button-height: 30px;
 /* Button font size */
 @button-font-size: 12px;
@@ -13,19 +15,68 @@
 @button-border-radius: 4px;
 
 
-input[type='button'], input[type='submit'], button {
+/**
+* Color button mixin
+* @color-regular - button background-color
+* @color-hover - button background color when hovered
+* @color-disabled-background - button background color when disabled
+* @color-font - button font-color
+**/
+.color-button(@color-regular, @color-hover, @color-disabled-background, @color-font) {
+  background: @color-regular;
+  color: @color-font;
+  border: 1px solid @color-regular;
+  &:hover {
+    background: @color-hover;
+    border: 1px solid @color-hover;
+  }
+  &[disabled] {
+    color: @color-regular;
+    background: @color-disabled-background;
+    border: 1px solid @color-disabled-background;
+    &:hover {
+      background: @color-disabled-background;
+    }
+  }
+}
+
+
+/**
+* Outline button mixin
+* @color-regular - button border and text color
+* @color-hover - button border and text color when hovered
+* @color-disabled - button border and text color when disabled
+ */
+.outline(@color-regular, @color-hover, @color-disabled) {
+  color: @color-regular;
+  background: transparent;
+  border: 1px solid @color-regular;
+  &:hover {
+    color: @color-hover;
+    background: transparent;
+    border: 1px solid @color-hover;
+  }
+  &[disabled] {
+    color: @color-disabled;
+    background: transparent;
+    border: 1px solid @color-disabled;
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
+
+.btn {
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: @button-height;
+  min-width: @size-regular-height;
   padding: @button-padding;
   box-sizing: border-box;
   font-size: @button-font-size;
   line-height: @button-font-size;
-  background: @color-gray-regular;
-  color: white;
-  border: 1px solid @color-gray-regular;
   border-radius: @button-border-radius;
   cursor: pointer;
   outline: none;
@@ -34,150 +85,94 @@ input[type='button'], input[type='submit'], button {
   -ms-transition: background 0.1s ease-in;
   -o-transition: background 0.1s ease-in;
   transition: background 0.1s ease-in;
+  .color-button(@color-gray-regular, @color-gray-hover, @color-gray-disabled-background, white);
+  .size-regular;
 
-  &:hover {
-    background: @color-gray-hover;
-    border: 1px solid @color-gray-hover;
-  }
+  /**
+  * Disabled button
+  **/
   &[disabled] {
-    color: @color-gray-regular;
-    background: @color-gray-disabled-background;
-    border: 1px solid @color-gray-disabled-background;
     cursor: default;
-    &:hover {
-      background: @color-gray-disabled-background;
-    }
-
-    .fa {
-      display: flex;
-    }
   }
 
+  /**
+  * Outline button
+  **/
   &.outline {
-    color: @color-gray-regular;
-    background: transparent;
-    border: 1px solid @color-gray-regular;
-    &:hover {
-      color: @color-gray-hover;
-      border: 1px solid @color-gray-hover;
-    }
-    &[disabled] {
-      color: @color-gray-disabled;
-      background: transparent;
-      border: 1px solid @color-gray-disabled;
-    }
+    .outline(@color-gray-regular, @color-gray-hover, @color-gray-disabled);
   }
 
-  &.blue {
-    color: white;
-    background: @color-blue-regular;
-    border: 1px solid @color-blue-regular;
-    &:hover {
-      background: @color-blue-hover;
-      border: 1px solid @color-blue-hover;
-    }
-    &[disabled] {
-      color: @color-blue-regular;
-      background: @color-blue-disabled-background;
-      border: 1px solid @color-blue-disabled-background;
-      cursor: default;
-      &:hover {
-        background: @color-blue-disabled-background;
-      }
-    }
-
-    &.outline {
-      color: @color-blue-regular;
-      background: transparent;
-      border: 1px solid @color-blue-regular;
-      &:hover {
-        color: @color-blue-hover;
-        border: 1px solid @color-blue-hover;
-      }
-      &[disabled] {
-        color: @color-blue-disabled;
-        border: 1px solid @color-blue-disabled;
-        &:hover {
-          background: transparent;
-        }
-      }
-    }
-  }
-
-  &.green {
-    color: white;
-    background: @color-green-regular;
-    border: 1px solid @color-green-regular;
-    &:hover {
-      background: @color-green-hover;
-      border: 1px solid @color-green-hover;
-    }
-    &[disabled] {
-      color: @color-green-regular;
-      background: @color-green-disabled-background;
-      border: 1px solid @color-green-disabled-background;
-      cursor: default;
-      &:hover {
-        background: @color-green-disabled-background;
-      }
-    }
-
-    &.outline {
-      color: @color-green-regular;
-      background: transparent;
-      border: 1px solid @color-green-regular;
-      &:hover {
-        color: @color-green-hover;
-        border: 1px solid @color-green-hover;
-      }
-      &[disabled] {
-        color: @color-green-disabled;
-        border: 1px solid @color-green-disabled;
-        &:hover {
-          background: transparent;
-        }
-      }
-    }
-  }
-
-  &.red {
-    color: white;
-    background: @color-red-regular;
-    border: 1px solid @color-red-regular;
-    &:hover {
-      background: @color-red-hover;
-      border: 1px solid @color-red-hover;
-    }
-    &[disabled] {
-      color: @color-red-regular;
-      background: @color-red-disabled-background;
-      border: 1px solid @color-red-disabled-background;
-      cursor: default;
-      &:hover {
-        background: @color-red-disabled-background;
-      }
-    }
-
-    &.outline {
-      color: @color-red-regular;
-      background: transparent;
-      border: 1px solid @color-red-regular;
-      &:hover {
-        color: @color-red-hover;
-        border: 1px solid @color-red-hover;
-      }
-      &[disabled] {
-        color: @color-red-disabled;
-        border: 1px solid @color-red-disabled;
-        &:hover {
-          background: transparent;
-        }
-      }
-    }
-  }
-
+  /**
+  * Round button
+  **/
   &.round {
-    width: @button-height;
     border-radius: 50%;
+  }
+
+  /**
+  * Blue button
+  **/
+  &.blue {
+    .color-button(@color-blue-regular, @color-blue-hover, @color-blue-disabled-background, white);
+    &.outline {
+      .outline(@color-blue-regular, @color-blue-hover, @color-blue-disabled);
+    }
+  }
+
+  /**
+  * Green button
+  **/
+  &.green {
+    .color-button(@color-green-regular, @color-green-hover, @color-green-disabled-background, white);
+    &.outline {
+      .outline(@color-green-regular, @color-green-hover, @color-green-disabled-background);
+    }
+  }
+
+  /**
+  * Red button
+  **/
+  &.red {
+    .color-button(@color-red-regular, @color-red-hover, @color-red-disabled-background, white);
+    &.outline {
+      .outline(@color-red-regular, @color-red-hover, @color-red-disabled-background);
+    }
+  }
+
+  /**
+  * Small button
+  **/
+  &.small {
+    .size-small;
+    min-width: @size-small-height;
+    padding: 5px;
+    font-size: 11px;
+    line-height: 11px;
+    .round {
+      width: @size-small-height;
+    }
+    .fa {
+      font-size: 10px;
+    }
+  }
+
+  /**
+  * Medium button
+  **/
+  &.medium {
+    .size-medium;
+    min-width: @size-medium-height;
+    font-size: 13px;
+    line-height: 13px;
+  }
+
+  /**
+  * Big button
+  **/
+  &.big {
+    .size-big;
+    min-width: @size-big-height;
+    font-size: 14px;
+    line-height: 14px;
   }
 }

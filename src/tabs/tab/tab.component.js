@@ -30,9 +30,10 @@ var TabComponent = (function () {
         /* Tab disable event */
         this.onDisable = new core_1.EventEmitter();
         if (!this.parent) {
-            console.error('angular-transistor: \'tab\' component must be used only inside \'tabs\' component');
+            console.error('angular-transistor: \'tab\' component must be used only inside parent \'tabs\' component');
             return;
         }
+        this.id = null;
         this.width = 0;
         this.disabled = false;
         this.isSelected = false;
@@ -43,7 +44,11 @@ var TabComponent = (function () {
      * Registering tab on parent tabs component.
      */
     TabComponent.prototype.ngOnInit = function () {
-        if (this.parent) {
+        console.log('id = ', this.id);
+        if (!this.id) {
+            console.error('angular-transistor: tab \'id\' input parameter must be specified');
+        }
+        if (this.parent && this.id) {
             this.parent.registerTab(this);
         }
     };

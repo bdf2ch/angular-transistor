@@ -44,6 +44,16 @@
       color: @tab-caption-font-color;
       cursor: pointer;
       border-bottom: 3px solid transparent;
+      -webkit-transition: all  0.2s linear;
+      -moz-transition: all 0.2s linear;
+      -ms-transition: all 0.2s linear;
+      -o-transition: all 0.2s linear;
+      transition: all 0.2s linear;
+      -webkit-transition-property: border-bottom, color;
+      -moz-transition-property: border-bottom, color;
+      -ms-transition-property: border-bottom, color;
+      -o-transition-property: border-bottom, color;
+      transition-property: border-bottom, color;
       &:hover {
         color: @tab-caption-font-color-hover;
       }

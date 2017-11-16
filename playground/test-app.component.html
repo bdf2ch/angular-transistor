@@ -2,38 +2,38 @@
     <tabs [id]="'lol'">
 
         <tab [id]="'buttons-tab'" [caption]="'buttons'" [icon]="'fa fa-button'">
-            <div style="padding: 20px;">
-                <div style="margin-bottom: 20px;">
-                    <button class="gray">sample button</button>
-                    <button class="gray" disabled>sample button</button>
-                    <button class="gray outline">sample button</button>
-                    <button class="gray outline" disabled>sample button</button>
-                    <button class="gray"><i class="fa fa-search"></i></button>
-                    <button class="round gray"><i class="fa fa-gears"></i></button>
+            <div class="padding-20">
+                <div class="margin-bottom-20">
+                    <button class="btn small gray">sample button</button>
+                    <button class="btn small gray" disabled>sample button</button>
+                    <button class="btn small gray outline">sample button</button>
+                    <button class="btn small gray outline" disabled>sample button</button>
+                    <button class="btn small gray"><i class="fa fa-search"></i></button>
+                    <button class="btn small gray round"><i class="fa fa-gears"></i></button>
                 </div>
-                <div style="margin-bottom: 20px;">
-                    <button class="blue">sample button</button>
-                    <button class="blue" disabled>sample button</button>
-                    <button class="blue outline">sample button</button>
-                    <button class="blue outline" disabled>sample button</button>
-                    <button class="blue"><i class="fa fa-search"></i></button>
-                    <button class="round blue"><i class="fa fa-gears"></i></button>
+                <div class="margin-bottom-20">
+                    <button class="btn blue">sample button</button>
+                    <button class="btn blue" disabled>sample button</button>
+                    <button class="btn blue outline">sample button</button>
+                    <button class="btn blue outline" disabled>sample button</button>
+                    <button class="btn blue"><i class="fa fa-search"></i></button>
+                    <button class="btn round blue"><i class="fa fa-gears"></i></button>
                 </div>
-                <div style="margin-bottom:  20px;">
-                    <button class="green">sample button</button>
-                    <button class="green" disabled>sample button</button>
-                    <button class="green outline">sample button</button>
-                    <button class="green outline" disabled>sample button</button>
-                    <button class="green"><i class="fa fa-search"></i></button>
-                    <button class="round green"><i class="fa fa-gears"></i></button>
+                <div class="margin-bottom-20">
+                    <button class="btn medium green">sample button</button>
+                    <button class="btn medium green" disabled>sample button</button>
+                    <button class="btn medium green outline">sample button</button>
+                    <button class="btn medium green outline" disabled>sample button</button>
+                    <button class="btn medium green"><i class="fa fa-search"></i></button>
+                    <button class="btn medium round green"><i class="fa fa-gears"></i></button>
                 </div>
-                <div style="margin-bottom:  20px;">
-                    <button class="red">sample button</button>
-                    <button class="red" disabled>sample button</button>
-                    <button class="red outline">sample button</button>
-                    <button class="red outline" disabled>sample button</button>
-                    <button class="red"><i class="fa fa-search"></i></button>
-                    <button class="round red"><i class="fa fa-gears"></i></button>
+                <div class="margin-bottom-20">
+                    <button class="btn big red">sample button</button>
+                    <button class="btn big red" disabled>sample button</button>
+                    <button class="btn big red outline">sample button</button>
+                    <button class="btn big red outline" disabled>sample button</button>
+                    <button class="btn big red"><i class="fa fa-search"></i></button>
+                    <button class="btn big red round"><i class="fa fa-gears"></i></button>
                 </div>
             </div>
         </tab>
@@ -61,10 +61,10 @@
 
         <tab [id]="'test1'" [caption]="'tabs'" [icon]="'fa fa-globe'" [title]="'tabs example'">
             <div style="padding: 20px;">
-                <button class="blue" (click)="selectFirstTab()">select first tab</button>
-                <button class="green" (click)="selectThirdTab()">select third tab</button>
-                <button class="gray" (click)="disableFirstTab()">disable first tab</button>
-                <button class="gray" (click)="enableFirstTab()">enable first tab</button>
+                <button class="btn blue" (click)="selectFirstTab()">select first tab</button>
+                <button class="btn green" (click)="selectThirdTab()">select third tab</button>
+                <button class="btn gray" (click)="disableFirstTab()">disable first tab</button>
+                <button class="btn gray" (click)="enableFirstTab()">enable first tab</button>
             </div>
         </tab>
 
@@ -88,15 +88,15 @@
                                         <input class="width-100" type="text">
                                     </div>
                                     <div class="row width-100 horizontal-between margin-bottom-15">
-                                        <button class="green width-50 margin-right-5">ok button</button>
-                                        <button class="red width-50 margin-left-5">cancel button</button>
+                                        <button class="btn green width-50 margin-right-5">ok button</button>
+                                        <button class="btn red width-50 margin-left-5">cancel button</button>
                                     </div>
                                     <div class="column">
-                                        <button class="gray width-100 margin-bottom-5" (click)="openSecondModal()">
+                                        <button class="btn gray width-100 margin-bottom-5" (click)="openSecondModal()">
                                             <i class="fa fa-window-maximize margin-right-10"></i>
                                             open second modal
                                         </button>
-                                        <button class="gray width-100" (click)="closeModal()">
+                                        <button class="btn gray width-100" (click)="closeModal()">
                                             <i class="fa fa-window-minimize margin-right-10"></i>
                                             close modal
                                         </button>
@@ -109,23 +109,24 @@
                 </modal>
                 <modal [id]="'second-test-modal'" [header]="false" [caption]="'second test modal with long text with ellipsis'" [width]="300" [height]="200" [depth]="2">
                     <div class="column width-100 padding-20 horizontal-center vertical-center">
-                        <button class="blue outline width-80 margin-bottom-10" (click)="openModal()">open first modal</button>
-                        <button class="blue outline width-80" (click)="closeSecondModal()">close second modal</button>
+                        <button class="btn medium blue outline width-80 margin-bottom-10" (click)="openModal()">open first modal</button>
+                        <button class="btn medium blue outline width-80" (click)="closeSecondModal()">close second modal</button>
                     </div>
                 </modal>
-                <button class="gray" (click)="openModal()">open modal</button>
-                <button class="gray" (click)="openSecondModal()">open second modal</button>
+                <button class="btn medium gray" (click)="openModal()">open modal</button>
+                <button class="btn  mediumgray" (click)="openSecondModal()">open second modal</button>
             </div>
         </tab>
 
 
 
         <tab [id]="'test3'" [caption]="'tab 3'" [icon]="'fa fa-gears'" [title]="'tab 3 title'">
-            <div style="padding: 20px;">
+            <div class="padding-20">
                 tab 3 content here
             </div>
         </tab>
     </tabs>
+
 </div>
 
 
