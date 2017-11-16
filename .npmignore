@@ -55,3 +55,6 @@ e2e-spec.ts
 bs-config.json
 tslint.json
 .gitignore
+/src/polyfills.ts
+/src/vendor.ts
+/src/tsconfig.json

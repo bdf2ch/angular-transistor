@@ -4,8 +4,7 @@ import { TabsComponent } from '../tabs.component';
 
 @Component({
     selector: 'tab',
-    templateUrl: './tab.component.html',
-    styleUrls: ['./tab.component.css']
+    templateUrl: './tab.component.html'
 })
 export class TabComponent implements OnInit {
     /* Tab id */
@@ -53,7 +52,6 @@ export class TabComponent implements OnInit {
      * Registering tab on parent tabs component.
      */
     ngOnInit(): void {
-        console.log('id = ', this.id);
         if (!this.id) {
             console.error('angular-transistor: tab \'id\' input parameter must be specified');
         }

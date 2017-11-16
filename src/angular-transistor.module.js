@@ -5,7 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var animations_1 = require("@angular/platform-browser/animations");
@@ -45,4 +45,3 @@ AngularTransistorModule = __decorate([
     })
 ], AngularTransistorModule);
 exports.AngularTransistorModule = AngularTransistorModule;
-//# sourceMappingURL=angular-transistor.module.js.map
