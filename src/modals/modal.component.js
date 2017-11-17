@@ -91,7 +91,7 @@ ModalComponent = __decorate([
         selector: 'modal',
         templateUrl: './modal.component.html',
         //styleUrls: ['./modal.component.css'],
-        styles: [require('./modal.component.css')],
+        styles: [String(require('./modal.component.css'))],
         animations: [
             animations_1.trigger("fog", [
                 animations_1.state('shown', animations_1.style({

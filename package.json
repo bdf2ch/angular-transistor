@@ -32,9 +32,8 @@
     "angular",
     "angular2",
     "ui",
-    "kit",
-    "typeahead",
     "tabs",
+    "tab",
     "modals"
   ],
   "author": "bdf2ch",

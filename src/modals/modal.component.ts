@@ -8,7 +8,7 @@ import { angularTransistorConfig } from '../angular-transistor.config';
     selector: 'modal',
     templateUrl: './modal.component.html',
     //styleUrls: ['./modal.component.css'],
-    styles: [require('./modal.component.css')],
+    styles: [String(require('./modal.component.css'))],
     animations: [
         trigger("fog", [
             state('shown', style({

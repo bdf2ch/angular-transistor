@@ -60,3 +60,4 @@ tslint.json
 /src/vendor.ts
 /src/vendor.js
 /src/tsconfig.json
+/src/index.js.map
