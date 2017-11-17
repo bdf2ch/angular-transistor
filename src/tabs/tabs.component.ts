@@ -6,7 +6,8 @@ import { TabsService } from './tabs.service';
 @Component({
     selector: 'tabs',
     templateUrl: './tabs.component.html',
-    styleUrls: ['./tabs.component.css']
+    //styleUrls: ['./tabs.component.css']
+    styles: [require('./tabs.component.css')]
 })
 export class TabsComponent implements OnInit {
     /* Tabs id */
