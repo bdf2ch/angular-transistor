@@ -8,7 +8,7 @@ import { angularTransistorConfig } from '../angular-transistor.config';
     selector: 'modal',
     templateUrl: './modal.component.html',
     //styleUrls: ['./modal.component.css'],
-    styles: [String(require('./modal.component.css'))],
+    styles: [require('./modal.component.css').toString()],
     animations: [
         trigger("fog", [
             state('shown', style({
@@ -64,7 +64,7 @@ export class ModalComponent implements  OnInit {
     constructor(private modals: ModalsService) {
         this.width = angularTransistorConfig.modalDefaultWidht;
         this.height = angularTransistorConfig.modalDefaultHeight;
-        this.depth = 0;
+        this.depth = angularTransistorConfig.modalDefaultDepth;
         this.header = true;
         this.icon = null;
         this.isOpened = false;

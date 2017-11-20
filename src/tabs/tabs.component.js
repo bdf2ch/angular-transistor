@@ -75,7 +75,7 @@ TabsComponent = __decorate([
         selector: 'tabs',
         templateUrl: './tabs.component.html',
         //styleUrls: ['./tabs.component.css']
-        styles: [String(require('./tabs.component.css'))]
+        styles: [require('./tabs.component.css').toString()]
     }),
     __metadata("design:paramtypes", [tabs_service_1.TabsService])
 ], TabsComponent);

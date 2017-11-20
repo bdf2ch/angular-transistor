@@ -24,7 +24,7 @@ var ModalComponent = (function () {
         this.onClose = new core_1.EventEmitter();
         this.width = angular_transistor_config_1.angularTransistorConfig.modalDefaultWidht;
         this.height = angular_transistor_config_1.angularTransistorConfig.modalDefaultHeight;
-        this.depth = 0;
+        this.depth = angular_transistor_config_1.angularTransistorConfig.modalDefaultDepth;
         this.header = true;
         this.icon = null;
         this.isOpened = false;
@@ -91,7 +91,7 @@ ModalComponent = __decorate([
         selector: 'modal',
         templateUrl: './modal.component.html',
         //styleUrls: ['./modal.component.css'],
-        styles: [String(require('./modal.component.css'))],
+        styles: [require('./modal.component.css').toString()],
         animations: [
             animations_1.trigger("fog", [
                 animations_1.state('shown', animations_1.style({

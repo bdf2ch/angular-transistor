@@ -1,1 +1,1 @@
-{"version":3,"file":"angular-transistor.config.js","sourceRoot":"","sources":["angular-transistor.config.ts"],"names":[],"mappings":";;AAAa,QAAA,uBAAuB,GAAG;IACnC,iBAAiB,EAAE,GAAG;IACtB,kBAAkB,EAAE,GAAG;CAC1B,CAAC"}
+{"version":3,"file":"angular-transistor.config.js","sourceRoot":"","sources":["angular-transistor.config.ts"],"names":[],"mappings":";;AAAa,QAAA,uBAAuB,GAAG;IACnC,iBAAiB,EAAE,GAAG;IACtB,kBAAkB,EAAE,GAAG;IACvB,iBAAiB,EAAE,IAAI;CAC1B,CAAC"}
