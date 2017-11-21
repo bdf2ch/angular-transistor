@@ -113,6 +113,7 @@
   border: 1px solid #CFD8DC;
 }
 .btn.outline[disabled]:hover {
+  color: #CFD8DC;
   background: transparent;
 }
 .btn.round {
@@ -151,6 +152,7 @@
   border: 1px solid #BBDEFB;
 }
 .btn.blue.outline[disabled]:hover {
+  color: #BBDEFB;
   background: transparent;
 }
 .btn.green {
@@ -186,6 +188,7 @@
   border: 1px solid #E8F5E9;
 }
 .btn.green.outline[disabled]:hover {
+  color: #E8F5E9;
   background: transparent;
 }
 .btn.red {
@@ -221,6 +224,7 @@
   border: 1px solid #FFEBEE;
 }
 .btn.red.outline[disabled]:hover {
+  color: #FFEBEE;
   background: transparent;
 }
 .btn.small {
@@ -257,17 +261,25 @@
 /* Focused input border color */
 /* Disabled input border color */
 /* Input border radius */
-input[type='text'],
-input[type='password'],
-input[type='number'] {
+/**
+* Color input mixin
+* @color-regular - input background-color
+* @color-hover - input background color when hovered
+* @color-disabled-background - input background color when disabled
+* @color-font - input font-color
+**/
+/**
+* Outline input mixin
+* @color-regular - button border and text color
+* @color-hover - button border and text color when hovered
+* @color-disabled - button border and text color when disabled
+ */
+.inp {
   display: inline-flex;
   height: 30px;
   padding: 7px 10px;
   box-sizing: border-box;
   font-family: 'Open Sans Regular';
-  color: #90A4AE;
-  background: transparent;
-  border: 1px solid #CFD8DC;
   border-radius: 4px;
   outline: none;
   -webkit-transition: border 0.2s linear;
@@ -275,77 +287,244 @@ input[type='number'] {
   -ms-transition: border 0.2s linear;
   -o-transition: border 0.2s linear;
   transition: border 0.2s linear;
+  background: #ECEFF1;
+  color: #90A4AE;
+  border: 1px solid #ECEFF1;
+  height: 32px;
+  /**
+  * Outline input
+  **/
 }
-input[type='text']:focus,
-input[type='password']:focus,
-input[type='number']:focus {
-  border: 1px solid #B0BEC5;
-}
-input[type='text'][disabled],
-input[type='password'][disabled],
-input[type='number'][disabled] {
-  color: #CFD8DC;
+.inp[disabled] {
+  color: #B0BEC5;
   background: #ECEFF1;
   border: 1px solid #ECEFF1;
 }
-input[type='text'].default-text,
-input[type='password'].default-text,
-input[type='number'].default-text {
-  color: #B0BEC5 !important;
+.inp[disabled]:hover {
+  background: #ECEFF1;
 }
-input[type='text'].blue,
-input[type='password'].blue,
-input[type='number'].blue {
-  color: #90CAF9;
-  border: 1px solid #90CAF9;
+.inp:focus {
+  border: 1px solid #CFD8DC;
 }
-input[type='text'].blue:focus,
-input[type='password'].blue:focus,
-input[type='number'].blue:focus {
-  border: 1px solid #64B5F6;
+.inp.outline {
+  color: #90A4AE;
+  background: transparent;
+  border: 1px solid #B0BEC5;
 }
-input[type='text'].blue[disabled],
-input[type='password'].blue[disabled],
-input[type='number'].blue[disabled] {
+.inp.outline:hover {
+  background: transparent;
+  border: 1px solid #B0BEC5;
+}
+.inp.outline[disabled] {
+  color: #CFD8DC;
+  background: transparent;
+  border: 1px solid #CFD8DC;
+}
+.inp.outline[disabled]:hover {
+  color: #CFD8DC;
+  background: transparent;
+}
+.inp.outline:focus {
+  border: 1px solid #90A4AE;
+}
+.inp.underline {
+  padding-left: 0px;
+  padding-right: 0px;
+  color: #90A4AE;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #B0BEC5;
+  border-radius: 0px;
+}
+.inp.underline:hover {
+  background: transparent;
+}
+.inp.underline:focus {
+  border-bottom: 1px solid #90A4AE;
+}
+.inp.underline[disabled] {
+  color: #CFD8DC;
+  border-bottom: 1px solid #CFD8DC;
+}
+.inp.underline::placeholder {
+  color: #B0BEC5;
+}
+.inp.blue {
+  background: #E3F2FD;
+  color: #64B5F6;
+  border: 1px solid #E3F2FD;
+}
+.inp.blue[disabled] {
   color: #90CAF9;
   background: #E3F2FD;
   border: 1px solid #E3F2FD;
 }
-input[type='text'].green,
-input[type='password'].green,
-input[type='number'].green {
-  color: #A5D6A7;
-  border: 1px solid #A5D6A7;
+.inp.blue[disabled]:hover {
+  background: #E3F2FD;
 }
-input[type='text'].green:focus,
-input[type='password'].green:focus,
-input[type='number'].green:focus {
-  border: 1px solid #81C784;
+.inp.blue:focus {
+  border: 1px solid #BBDEFB;
 }
-input[type='text'].green[disabled],
-input[type='password'].green[disabled],
-input[type='number'].green[disabled] {
+.inp.blue.outline {
+  color: #64B5F6;
+  background: transparent;
+  border: 1px solid #90CAF9;
+}
+.inp.blue.outline:hover {
+  background: transparent;
+  border: 1px solid #90CAF9;
+}
+.inp.blue.outline[disabled] {
+  color: #BBDEFB;
+  background: transparent;
+  border: 1px solid #BBDEFB;
+}
+.inp.blue.outline[disabled]:hover {
+  color: #BBDEFB;
+  background: transparent;
+}
+.inp.blue.outline:focus {
+  border: 1px solid #64B5F6;
+}
+.inp.blue.underline {
+  padding-left: 0px;
+  padding-right: 0px;
+  color: #64B5F6;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #90CAF9;
+  border-radius: 0px;
+}
+.inp.blue.underline:hover {
+  background: transparent;
+}
+.inp.blue.underline:focus {
+  border-bottom: 1px solid #64B5F6;
+}
+.inp.blue.underline[disabled] {
+  color: #BBDEFB;
+  border-bottom: 1px solid #BBDEFB;
+}
+.inp.blue.underline::placeholder {
+  color: #90CAF9;
+}
+.inp.green {
+  background: #E8F5E9;
+  color: #81C784;
+  border: 1px solid #E8F5E9;
+}
+.inp.green[disabled] {
   color: #A5D6A7;
   background: #E8F5E9;
   border: 1px solid #E8F5E9;
 }
-input[type='text'].red,
-input[type='password'].red,
-input[type='number'].red {
-  color: #EF9A9A;
-  border: 1px solid #EF9A9A;
+.inp.green[disabled]:hover {
+  background: #E8F5E9;
 }
-input[type='text'].red:focus,
-input[type='password'].red:focus,
-input[type='number'].red:focus {
-  border: 1px solid #E57373;
+.inp.green:focus {
+  border: 1px solid #C8E6C9;
 }
-input[type='text'].red[disabled],
-input[type='password'].red[disabled],
-input[type='number'].red[disabled] {
+.inp.green.outline {
+  color: #81C784;
+  background: transparent;
+  border: 1px solid #A5D6A7;
+}
+.inp.green.outline:hover {
+  background: transparent;
+  border: 1px solid #A5D6A7;
+}
+.inp.green.outline[disabled] {
+  color: #C8E6C9;
+  background: transparent;
+  border: 1px solid #C8E6C9;
+}
+.inp.green.outline[disabled]:hover {
+  color: #C8E6C9;
+  background: transparent;
+}
+.inp.green.outline:focus {
+  border: 1px solid #81C784;
+}
+.inp.green.underline {
+  padding-left: 0px;
+  padding-right: 0px;
+  color: #81C784;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #A5D6A7;
+  border-radius: 0px;
+}
+.inp.green.underline:hover {
+  background: transparent;
+}
+.inp.green.underline:focus {
+  border-bottom: 1px solid #81C784;
+}
+.inp.green.underline[disabled] {
+  color: #C8E6C9;
+  border-bottom: 1px solid #C8E6C9;
+}
+.inp.green.underline::placeholder {
+  color: #A5D6A7;
+}
+.inp.red {
+  background: #FFEBEE;
+  color: #E57373;
+  border: 1px solid #FFEBEE;
+}
+.inp.red[disabled] {
   color: #EF9A9A;
   background: #FFEBEE;
   border: 1px solid #FFEBEE;
+}
+.inp.red[disabled]:hover {
+  background: #FFEBEE;
+}
+.inp.red:focus {
+  border: 1px solid #FFCDD2;
+}
+.inp.red.outline {
+  color: #E57373;
+  background: transparent;
+  border: 1px solid #EF9A9A;
+}
+.inp.red.outline:hover {
+  background: transparent;
+  border: 1px solid #EF9A9A;
+}
+.inp.red.outline[disabled] {
+  color: #FFCDD2;
+  background: transparent;
+  border: 1px solid #FFCDD2;
+}
+.inp.red.outline[disabled]:hover {
+  color: #FFCDD2;
+  background: transparent;
+}
+.inp.red.outline:focus {
+  border: 1px solid #E57373;
+}
+.inp.red.underline {
+  padding-left: 0px;
+  padding-right: 0px;
+  color: #E57373;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #EF9A9A;
+  border-radius: 0px;
+}
+.inp.red.underline:hover {
+  background: transparent;
+}
+.inp.red.underline:focus {
+  border-bottom: 1px solid #E57373;
+}
+.inp.red.underline[disabled] {
+  color: #FFCDD2;
+  border-bottom: 1px solid #FFCDD2;
+}
+.inp.red.underline::placeholder {
+  color: #EF9A9A;
 }
 .size-small {
   height: 25px;

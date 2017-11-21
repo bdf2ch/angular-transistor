@@ -1,6 +1,7 @@
 @import (reference) 'fonts';
 @import (reference) 'buttons';
 @import (reference) 'colors';
+@import (reference) 'sizes';
 
 
 /* Input height */
@@ -31,15 +32,94 @@
 @input-border-radius: 4px;
 
 
-input[type='text'], input[type='password'], input[type='number'] {
+/**
+* Color input mixin
+* @color-regular - input background-color
+* @color-hover - input background color when hovered
+* @color-disabled-background - input background color when disabled
+* @color-font - input font-color
+**/
+.color-input(@color-regular, @color-hover, @color-disabled, @color-disabled-background, @color-font) {
+  background: @color-disabled-background;
+  color: @color-font;
+  border: 1px solid @color-disabled-background;
+  &[disabled] {
+    color: @color-regular;
+    background: @color-disabled-background;
+    border: 1px solid @color-disabled-background;
+    &:hover {
+      background: @color-disabled-background;
+    }
+  }
+  &:focus {
+    border:1px solid @color-disabled;
+  }
+}
+
+
+
+/**
+* Outline input mixin
+* @color-regular - button border and text color
+* @color-hover - button border and text color when hovered
+* @color-disabled - button border and text color when disabled
+ */
+.outline-input(@color-regular, @color-hover, @color-disabled) {
+  color: @color-hover;
+  background: transparent;
+  border: 1px solid @color-regular;
+  &:hover {
+    //color: @color-hover;
+    background: transparent;
+    border: 1px solid @color-regular;
+  }
+  &[disabled] {
+    color: @color-disabled;
+    background: transparent;
+    border: 1px solid @color-disabled;
+    &:hover {
+      color: @color-disabled;
+      background: transparent;
+    }
+  }
+  &:focus {
+    border:1px solid @color-hover;
+  }
+}
+
+
+
+.underline-input(@color-regular, @color-hover, @color-disabled) {
+  padding-left: 0px;
+  padding-right: 0px;
+  color: @color-hover;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid @color-regular;
+  border-radius: 0px;
+  &:hover {
+    background: transparent;
+  }
+  &:focus {
+    border-bottom: 1px solid @color-hover;
+  }
+  &[disabled] {
+    color: @color-disabled;
+    border-bottom: 1px solid @color-disabled;
+  }
+  &::placeholder {
+    color: @color-regular;
+  }
+};
+
+
+
+.inp {
   display: inline-flex;
   height: @input-height;
   padding: @input-padding;
   box-sizing: border-box;
   font-family: @input-font-family;
-  color: @color-gray-hover;
-  background: @input-background-color;
-  border: 1px solid @input-border-color;
   border-radius: @input-border-radius;
   outline: none;
   -webkit-transition: border 0.2s linear;
@@ -47,65 +127,54 @@ input[type='text'], input[type='password'], input[type='number'] {
   -ms-transition: border 0.2s linear;
   -o-transition: border 0.2s linear;
   transition: border 0.2s linear;
+  .color-input(@color-gray-regular, @color-gray-hover, @color-gray-disabled, @color-gray-disabled-background, @color-gray-hover);
+  .size-regular;
 
 
-  &:focus {
-    border: 1px solid @input-border-color-focus;
+  /**
+  * Outline input
+  **/
+  &.outline {
+    .outline-input(@color-gray-regular, @color-gray-hover, @color-gray-disabled);
   }
 
-
-  &[disabled] {
-    color: @color-gray-disabled;
-    background: @input-border-color-disabled;
-    border: 1px solid @input-border-color-disabled;
-  }
-
-
-  &.default-text {
-    color: @color-gray-regular !important;
+  &.underline {
+    .underline-input(@color-gray-regular, @color-gray-hover, @color-gray-disabled)
   }
 
 
   &.blue {
-    color: @color-blue-regular;
-    border: 1px solid @color-blue-regular;
-    &:focus {
-      border: 1px solid @color-blue-hover;
+    .color-input(@color-blue-regular, @color-blue-hover, @color-blue-disabled, @color-blue-disabled-background, @color-blue-hover);
+    &.outline {
+      .outline-input(@color-blue-regular, @color-blue-hover, @color-blue-disabled)
     }
-    &[disabled] {
-      color: @color-blue-regular;
-      background: @color-blue-disabled-background;
-      border: 1px solid @color-blue-disabled-background;
+    &.underline {
+      .underline-input(@color-blue-regular, @color-blue-hover, @color-blue-disabled);
     }
   }
 
 
   &.green {
-    color: @color-green-regular;
-    border: 1px solid @color-green-regular;
-    &:focus {
-      border: 1px solid @color-green-hover;
+    .color-input(@color-green-regular, @color-green-hover, @color-green-disabled, @color-green-disabled-background, @color-green-hover);
+    &.outline {
+      .outline-input(@color-green-regular, @color-green-hover, @color-green-disabled)
     }
-    &[disabled] {
-      color: @color-green-regular;
-      background: @color-green-disabled-background;
-      border: 1px solid @color-green-disabled-background;
+    &.underline {
+      .underline-input(@color-green-regular, @color-green-hover, @color-green-disabled);
     }
   }
 
 
   &.red {
-    color: @color-red-regular;
-    border: 1px solid @color-red-regular;
-    &:focus {
-      border: 1px solid @color-red-hover;
+    .color-input(@color-red-regular, @color-red-hover, @color-red-disabled, @color-red-disabled-background, @color-red-hover);
+    &.outline {
+      .outline-input(@color-red-regular, @color-red-hover, @color-red-disabled)
     }
-    &[disabled] {
-      color: @color-red-regular;
-      background: @color-red-disabled-background;
-      border: 1px solid @color-red-disabled-background;
+    &.underline {
+      .underline-input(@color-red-regular, @color-red-hover, @color-red-disabled);
     }
   }
 }
+
 
 

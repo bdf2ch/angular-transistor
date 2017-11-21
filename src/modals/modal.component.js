@@ -22,8 +22,9 @@ var ModalComponent = (function () {
         this.modals = modals;
         /**/
         this.onClose = new core_1.EventEmitter();
+        this.config = angular_transistor_config_1.angularTransistorConfig;
         this.width = angular_transistor_config_1.angularTransistorConfig.modalDefaultWidht;
-        this.height = angular_transistor_config_1.angularTransistorConfig.modalDefaultHeight;
+        this.height = 0;
         this.depth = angular_transistor_config_1.angularTransistorConfig.modalDefaultDepth;
         this.header = true;
         this.icon = null;

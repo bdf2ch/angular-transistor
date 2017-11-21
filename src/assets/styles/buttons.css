@@ -97,6 +97,7 @@
   border: 1px solid #CFD8DC;
 }
 .btn.outline[disabled]:hover {
+  color: #CFD8DC;
   background: transparent;
 }
 .btn.round {
@@ -135,6 +136,7 @@
   border: 1px solid #BBDEFB;
 }
 .btn.blue.outline[disabled]:hover {
+  color: #BBDEFB;
   background: transparent;
 }
 .btn.green {
@@ -170,6 +172,7 @@
   border: 1px solid #E8F5E9;
 }
 .btn.green.outline[disabled]:hover {
+  color: #E8F5E9;
   background: transparent;
 }
 .btn.red {
@@ -205,6 +208,7 @@
   border: 1px solid #FFEBEE;
 }
 .btn.red.outline[disabled]:hover {
+  color: #FFEBEE;
   background: transparent;
 }
 .btn.small {

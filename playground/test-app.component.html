@@ -39,28 +39,44 @@
         </tab>
 
         <tab [id]="'inputs-tab'" [caption]="'inputs'" [icon]="'fa fa-pencil'">
-            <div style="padding: 20px;">
-                <div style="margin-bottom: 20px;">
-                    <input type="text">
-                    <input type="text" disabled value="disabled input">
+            <div class="padding-20">
+                <div class="margin-bottom-20">
+                    <input class="inp" type="text">
+                    <input class="inp" type="text" disabled value="disabled input">
+                    <input class="inp outline" type="text">
+                    <input class="inp outline" type="text" disabled value="disabled input">
+                    <input class="inp underline" type="text" placeholder="type here...">
+                    <input class="inp underline" type="text" disabled value="disabled input">
                 </div>
-                <div style="margin-bottom: 20px;">
-                    <input class="blue" type="text">
-                    <input class="blue" type="text" disabled value="disabled input">
+                <div class="margin-bottom-20">
+                    <input class="inp blue" type="text">
+                    <input class="inp blue" type="text" disabled value="disabled input">
+                    <input class="inp blue outline" type="text">
+                    <input class="inp blue outline" type="text" disabled value="disabled input">
+                    <input class="inp blue underline" type="text" placeholder="type here...">
+                    <input class="inp blue underline" type="text" disabled value="disabled input">
                 </div>
-                <div style="margin-bottom: 20px;">
-                    <input class="green" type="text">
-                    <input class="green" type="text" disabled value="disabled input">
+                <div class="margin-bottom-20">
+                    <input class="inp green" type="text">
+                    <input class="inp green" type="text" disabled value="disabled input">
+                    <input class="inp green outline" type="text">
+                    <input class="inp green outline" type="text" disabled value="disabled input">
+                    <input class="inp green underline" type="text" placeholder="type here...">
+                    <input class="inp green underline" type="text" disabled value="disabled input">
                 </div>
-                <div style="margin-bottom: 20px;">
-                    <input class="red default-text" type="text">
-                    <input class="red" type="text" disabled value="disabled input">
+                <div class="margin-bottom-20">
+                    <input class="inp red" type="text">
+                    <input class="inp red" type="text" disabled value="disabled input">
+                    <input class="inp red outline" type="text">
+                    <input class="inp red outline" type="text" disabled value="disabled input">
+                    <input class="inp red underline" type="text" placeholder="type here...">
+                    <input class="inp red underline" type="text" disabled value="disabled input">
                 </div>
             </div>
         </tab>
 
         <tab [id]="'test1'" [caption]="'tabs'" [icon]="'fa fa-globe'" [title]="'tabs example'">
-            <div style="padding: 20px;">
+            <div class="padding-20">
                 <button class="btn blue" (click)="selectFirstTab()">select first tab</button>
                 <button class="btn green" (click)="selectThirdTab()">select third tab</button>
                 <button class="btn gray" (click)="disableFirstTab()">disable first tab</button>
@@ -69,23 +85,23 @@
         </tab>
 
         <tab [id]="'test2'" [caption]="'modals'" [icon]="'fa fa-window-maximize'" [title]="'modals example'">
-            <div style="padding: 20px;">
+            <div class="padding-20">
                 <modal [id]="'test-modal'" [header]="true" [caption]="'test modal caption'" [depth]="1" [icon]="'fa fa-globe'">
                     <div class="column width-100">
                         <tabs [id]="'second-tabs'">
                             <tab [id]="'test1'" [caption]="'test tab one'" [width]="50">
                                 <div class="column padding-20">
                                     <div class="row width-100 margin-bottom-15">
-                                        <input class="width-100" type="text">
+                                        <input class="inp width-100" type="text">
                                     </div>
                                     <div class="row width-100 margin-bottom-15">
-                                        <input class="width-100" type="text">
+                                        <input class="inp width-100" type="text">
                                     </div>
                                     <div class="row width-100 margin-bottom-15">
-                                        <input class="width-100" type="text">
+                                        <input class="inp width-100" type="text">
                                     </div>
                                     <div class="row width-100 margin-bottom-15">
-                                        <input class="width-100" type="text">
+                                        <input class="inp width-100" type="text">
                                     </div>
                                     <div class="row width-100 horizontal-between margin-bottom-15">
                                         <button class="btn green width-50 margin-right-5">ok button</button>

@@ -55,6 +55,7 @@ export class ModalComponent implements  OnInit {
     private isOpened: boolean;
     /* Current status of modal - hidden or shown */
     private status: string;
+    private config: any = angularTransistorConfig;
 
 
     /**
@@ -63,7 +64,7 @@ export class ModalComponent implements  OnInit {
      */
     constructor(private modals: ModalsService) {
         this.width = angularTransistorConfig.modalDefaultWidht;
-        this.height = angularTransistorConfig.modalDefaultHeight;
+        this.height = 0;
         this.depth = angularTransistorConfig.modalDefaultDepth;
         this.header = true;
         this.icon = null;
