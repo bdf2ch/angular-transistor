@@ -52,6 +52,7 @@
     }
   }
   &:focus {
+    background: @color-disabled;
     border:1px solid @color-disabled;
   }
 }
@@ -127,7 +128,7 @@
   -ms-transition: border 0.2s linear;
   -o-transition: border 0.2s linear;
   transition: border 0.2s linear;
-  .color-input(@color-gray-regular, @color-gray-hover, @color-gray-disabled, @color-gray-disabled-background, @color-gray-hover);
+  .color-input(@color-gray-regular, @color-gray-hover, @color-gray-disabled, @color-gray-disabled-background, @color-gray-strong);
   .size-regular;
 
 
@@ -144,7 +145,7 @@
 
 
   &.blue {
-    .color-input(@color-blue-regular, @color-blue-hover, @color-blue-disabled, @color-blue-disabled-background, @color-blue-hover);
+    .color-input(@color-blue-regular, @color-blue-hover, @color-blue-disabled, @color-blue-disabled-background, @color-blue-strong);
     &.outline {
       .outline-input(@color-blue-regular, @color-blue-hover, @color-blue-disabled)
     }
@@ -155,7 +156,7 @@
 
 
   &.green {
-    .color-input(@color-green-regular, @color-green-hover, @color-green-disabled, @color-green-disabled-background, @color-green-hover);
+    .color-input(@color-green-regular, @color-green-hover, @color-green-disabled, @color-green-disabled-background, @color-green-strong);
     &.outline {
       .outline-input(@color-green-regular, @color-green-hover, @color-green-disabled)
     }
@@ -166,13 +167,50 @@
 
 
   &.red {
-    .color-input(@color-red-regular, @color-red-hover, @color-red-disabled, @color-red-disabled-background, @color-red-hover);
+    .color-input(@color-red-regular, @color-red-hover, @color-red-disabled, @color-red-disabled-background, @color-red-strong);
     &.outline {
       .outline-input(@color-red-regular, @color-red-hover, @color-red-disabled)
     }
     &.underline {
       .underline-input(@color-red-regular, @color-red-hover, @color-red-disabled);
     }
+  }
+
+
+  /**
+ * Small button
+ **/
+  &.small {
+    .size-small;
+    padding: 5px;
+    //font-size: 11px;
+    //line-height: 11px;
+    //.round {
+    //  width: @size-small-height;
+    //}
+    //.fa {
+    //  font-size: 10px;
+    //}
+  }
+
+  /**
+  * Medium button
+  **/
+  &.medium {
+    .size-medium;
+    //min-width: @size-medium-height;
+    //font-size: 13px;
+    //line-height: 13px;
+  }
+
+  /**
+  * Big button
+  **/
+  &.big {
+    .size-big;
+    //min-width: @size-big-height;
+    //font-size: 14px;
+    //line-height: 14px;
   }
 }
 

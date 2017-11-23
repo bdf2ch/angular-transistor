@@ -288,11 +288,20 @@
   -o-transition: border 0.2s linear;
   transition: border 0.2s linear;
   background: #ECEFF1;
-  color: #90A4AE;
+  color: #37474F;
   border: 1px solid #ECEFF1;
   height: 32px;
   /**
   * Outline input
+  **/
+  /**
+ * Small button
+ **/
+  /**
+  * Medium button
+  **/
+  /**
+  * Big button
   **/
 }
 .inp[disabled] {
@@ -304,6 +313,7 @@
   background: #ECEFF1;
 }
 .inp:focus {
+  background: #CFD8DC;
   border: 1px solid #CFD8DC;
 }
 .inp.outline {
@@ -351,7 +361,7 @@
 }
 .inp.blue {
   background: #E3F2FD;
-  color: #64B5F6;
+  color: #1565C0;
   border: 1px solid #E3F2FD;
 }
 .inp.blue[disabled] {
@@ -363,6 +373,7 @@
   background: #E3F2FD;
 }
 .inp.blue:focus {
+  background: #BBDEFB;
   border: 1px solid #BBDEFB;
 }
 .inp.blue.outline {
@@ -410,7 +421,7 @@
 }
 .inp.green {
   background: #E8F5E9;
-  color: #81C784;
+  color: #2E7D32;
   border: 1px solid #E8F5E9;
 }
 .inp.green[disabled] {
@@ -422,6 +433,7 @@
   background: #E8F5E9;
 }
 .inp.green:focus {
+  background: #C8E6C9;
   border: 1px solid #C8E6C9;
 }
 .inp.green.outline {
@@ -469,7 +481,7 @@
 }
 .inp.red {
   background: #FFEBEE;
-  color: #E57373;
+  color: #C62828;
   border: 1px solid #FFEBEE;
 }
 .inp.red[disabled] {
@@ -481,6 +493,7 @@
   background: #FFEBEE;
 }
 .inp.red:focus {
+  background: #FFCDD2;
   border: 1px solid #FFCDD2;
 }
 .inp.red.outline {
@@ -525,6 +538,16 @@
 }
 .inp.red.underline::placeholder {
   color: #EF9A9A;
+}
+.inp.small {
+  height: 25px;
+  padding: 5px;
+}
+.inp.medium {
+  height: 39px;
+}
+.inp.big {
+  height: 47px;
 }
 .size-small {
   height: 25px;
