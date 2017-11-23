@@ -60,7 +60,7 @@
 .tabs-component .tabs .tab .icon {
   margin-right: 10px;
 }
-.tabs-component .content {
+.tabs-component .tab-content {
   overflow: auto;
   border-top: 1px solid #ECEFF1;
 }
