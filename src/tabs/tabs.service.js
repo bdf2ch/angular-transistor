@@ -19,9 +19,13 @@ var TabsService = (function () {
     TabsService.prototype.register = function (tabs) {
         var findTabsById = function (item) { return item.id === tabs.id; };
         var result = this.tabs.find(findTabsById);
-        if (result) {
+        if (result && result.isEnabled) {
             console.error('angular-transistor: tabs plugin with id \'' + tabs.id + '\' already exists');
             return false;
+        }
+        else if (result && !result.isEnabled) {
+            result.isEnabled = true;
+            return true;
         }
         else {
             this.tabs.push(tabs);

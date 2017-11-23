@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { TabComponent } from './tab/tab.component';
 import { TabsService } from './tabs.service';
 
@@ -9,13 +9,13 @@ import { TabsService } from './tabs.service';
     //styleUrls: ['./tabs.component.css']
     styles: [require('./tabs.component.css').toString()]
 })
-export class TabsComponent implements OnInit {
+export class TabsComponent implements OnInit, OnDestroy {
     /* Tabs id */
     @Input() id: string = '';
     /* Array of containing tabs */
     public tabs: TabComponent[] = [];
     /* Is component enabled */
-    private isEnabled: boolean;
+    public isEnabled: boolean;
 
 
     /**
@@ -32,6 +32,11 @@ export class TabsComponent implements OnInit {
      */
     ngOnInit(): void {
         this.isEnabled = this.tabsService.register(this);
+    };
+
+
+    ngOnDestroy(): void {
+        this.isEnabled = false;
     };
 
 

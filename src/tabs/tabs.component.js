@@ -31,6 +31,10 @@ var TabsComponent = (function () {
         this.isEnabled = this.tabsService.register(this);
     };
     ;
+    TabsComponent.prototype.ngOnDestroy = function () {
+        this.isEnabled = false;
+    };
+    ;
     /**
      * Register new tab
      * @param {TabComponent} tab
