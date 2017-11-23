@@ -15,7 +15,7 @@ export class TabsComponent implements OnInit, OnDestroy {
     /* Array of containing tabs */
     public tabs: TabComponent[] = [];
     /* Is component enabled */
-    public isEnabled: boolean;
+    //public isEnabled: boolean;
 
 
     /**
@@ -23,7 +23,7 @@ export class TabsComponent implements OnInit, OnDestroy {
      * @param {TabsService} tabsService
      */
     constructor(private tabsService: TabsService) {
-        this.isEnabled = true;
+        //this.isEnabled = true;
     }
 
 
@@ -31,12 +31,12 @@ export class TabsComponent implements OnInit, OnDestroy {
      * Component initialization
      */
     ngOnInit(): void {
-        this.isEnabled = this.tabsService.register(this);
+        //this.isEnabled = this.tabsService.register(this);
     };
 
 
     ngOnDestroy(): void {
-        this.isEnabled = false;
+        //this.isEnabled = false;
     };
 
 

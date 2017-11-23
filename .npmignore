@@ -57,9 +57,9 @@ tslint.json
 .gitignore
 /src/polyfills.ts
 /src/polyfills.js
-/src/polyfills.map.js
+/src/polyfills.js.map
 /src/vendor.ts
 /src/vendor.js
-/src/vendor.map.js
+/src/vendor.js.map
 /src/tsconfig.json
 /src/index.js.map

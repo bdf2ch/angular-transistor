@@ -12,6 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var tabs_service_1 = require("./tabs.service");
 var TabsComponent = (function () {
+    /* Is component enabled */
+    //public isEnabled: boolean;
     /**
      * Constructor
      * @param {TabsService} tabsService
@@ -22,17 +24,17 @@ var TabsComponent = (function () {
         this.id = '';
         /* Array of containing tabs */
         this.tabs = [];
-        this.isEnabled = true;
+        //this.isEnabled = true;
     }
     /**
      * Component initialization
      */
     TabsComponent.prototype.ngOnInit = function () {
-        this.isEnabled = this.tabsService.register(this);
+        //this.isEnabled = this.tabsService.register(this);
     };
     ;
     TabsComponent.prototype.ngOnDestroy = function () {
-        this.isEnabled = false;
+        //this.isEnabled = false;
     };
     ;
     /**
