@@ -287,8 +287,10 @@
   -ms-transition: border 0.2s linear;
   -o-transition: border 0.2s linear;
   transition: border 0.2s linear;
+  transition: background 0.2s linear;
+  transition: color 0.2s linear;
   background: #ECEFF1;
-  color: #37474F;
+  color: #546E7A;
   border: 1px solid #ECEFF1;
   height: 32px;
   /**
@@ -315,6 +317,12 @@
 .inp:focus {
   background: #CFD8DC;
   border: 1px solid #CFD8DC;
+}
+.inp:focus::placeholder {
+  color: #90A4AE;
+}
+.inp::placeholder {
+  color: #B0BEC5;
 }
 .inp.outline {
   color: #90A4AE;
@@ -361,7 +369,7 @@
 }
 .inp.blue {
   background: #E3F2FD;
-  color: #1565C0;
+  color: #1E88E5;
   border: 1px solid #E3F2FD;
 }
 .inp.blue[disabled] {
@@ -375,6 +383,12 @@
 .inp.blue:focus {
   background: #BBDEFB;
   border: 1px solid #BBDEFB;
+}
+.inp.blue:focus::placeholder {
+  color: #64B5F6;
+}
+.inp.blue::placeholder {
+  color: #90CAF9;
 }
 .inp.blue.outline {
   color: #64B5F6;
@@ -421,7 +435,7 @@
 }
 .inp.green {
   background: #E8F5E9;
-  color: #2E7D32;
+  color: #43A047;
   border: 1px solid #E8F5E9;
 }
 .inp.green[disabled] {
@@ -435,6 +449,12 @@
 .inp.green:focus {
   background: #C8E6C9;
   border: 1px solid #C8E6C9;
+}
+.inp.green:focus::placeholder {
+  color: #81C784;
+}
+.inp.green::placeholder {
+  color: #A5D6A7;
 }
 .inp.green.outline {
   color: #81C784;
@@ -495,6 +515,12 @@
 .inp.red:focus {
   background: #FFCDD2;
   border: 1px solid #FFCDD2;
+}
+.inp.red:focus::placeholder {
+  color: #E57373;
+}
+.inp.red::placeholder {
+  color: #EF9A9A;
 }
 .inp.red.outline {
   color: #E57373;

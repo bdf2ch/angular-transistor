@@ -54,6 +54,12 @@
   &:focus {
     background: @color-disabled;
     border:1px solid @color-disabled;
+    &::placeholder {
+      color: @color-hover;
+    }
+  }
+  &::placeholder {
+    color: @color-regular;
   }
 }
 
@@ -128,6 +134,8 @@
   -ms-transition: border 0.2s linear;
   -o-transition: border 0.2s linear;
   transition: border 0.2s linear;
+  transition: background 0.2s linear;
+  transition: color 0.2s linear;
   .color-input(@color-gray-regular, @color-gray-hover, @color-gray-disabled, @color-gray-disabled-background, @color-gray-strong);
   .size-regular;
 
