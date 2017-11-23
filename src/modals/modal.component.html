@@ -1,4 +1,4 @@
-<div class="modal-component" [ngStyle]="{ 'z-index': depth }" [@fog]="status" *ngIf="isOpened">
+<div class="modal-component" [ngStyle]="{ 'z-index': config.modalDefaultDepth + depth }" [@fog]="status" *ngIf="isOpened">
     <div class="modal" [ngStyle]="{ 'width': width + 'px', 'height': height !== 0 ? height + 'px': 'auto', 'max-height': height === 0 ? config.modalDefaultHeight + 'px' : height + 'px' }" [@modal]="status">
         <div class="header" *ngIf="header" [ngClass]="{ 'with-icon': icon }">
             <div class="icon" *ngIf="icon"><i class="{{ icon }}"></i></div>
