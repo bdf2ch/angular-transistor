@@ -16,16 +16,16 @@ export class TabsService {
     register(tabs: TabsComponent): boolean {
         const findTabsById = (item: TabsComponent) => item.id === tabs.id;
         const result = this.tabs.find(findTabsById);
-        if (result && result.isEnabled) {
-            console.error('angular-transistor: tabs plugin with id \'' + tabs.id + '\' already exists');
-            return false;
-        } else if (result && !result.isEnabled) {
-            result.isEnabled = true;
-            return true;
-        } else {
+        //if (result && result.isEnabled) {
+        //    console.error('angular-transistor: tabs plugin with id \'' + tabs.id + '\' already exists');
+        //    return false;
+        //} else if (result && !result.isEnabled) {
+        //    result.isEnabled = true;
+        //    return true;
+        //} else {
             this.tabs.push(tabs);
             return true;
-        }
+        //}
     };
 
 
