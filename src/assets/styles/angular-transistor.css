@@ -69,6 +69,9 @@
   * Round button
   **/
   /**
+  * File input button
+  **/
+  /**
   * Blue button
   **/
   /**
@@ -123,6 +126,9 @@
 }
 .btn.round {
   border-radius: 50%;
+}
+.btn.file input[type='file'] {
+  display: none;
 }
 .btn.blue {
   background: #90CAF9;
