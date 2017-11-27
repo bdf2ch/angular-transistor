@@ -28,12 +28,17 @@ var ModalComponent = (function () {
         this.depth = angular_transistor_config_1.angularTransistorConfig.modalDefaultDepth;
         this.header = true;
         this.icon = null;
+        this.footerHeight = 0;
         this.isOpened = false;
         this.status = 'hidden';
     }
     ;
     ModalComponent.prototype.ngOnInit = function () {
         this.modals.register(this);
+    };
+    ;
+    ModalComponent.prototype.ngAfterContentInit = function () {
+        //console.log('footer', this.footer);
     };
     ;
     ModalComponent.prototype.open = function () {

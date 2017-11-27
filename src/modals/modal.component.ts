@@ -1,7 +1,8 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, AfterContentInit, EventEmitter, ViewChild } from '@angular/core';
 import { trigger, state, transition, animate, style } from '@angular/animations';
 import { ModalsService } from './modals.service';
 import { angularTransistorConfig } from '../angular-transistor.config';
+import { ModalFooterComponent } from './modal-footer/modal-footer.component';
 
 
 @Component({
@@ -32,11 +33,9 @@ import { angularTransistorConfig } from '../angular-transistor.config';
         ])
     ]
 })
-export class ModalComponent implements  OnInit {
-
+export class ModalComponent implements AfterContentInit, OnInit {
     /* Modal id */
     @Input() id: string;
-
     /* Modal z-index */
     @Input() depth: number;
     /* Modal width */
@@ -51,6 +50,8 @@ export class ModalComponent implements  OnInit {
     @Input() icon: string | null;
     /**/
     @Output() onClose: EventEmitter<any> = new EventEmitter();
+    public footerHeight: number;
+    //@ViewChild(ModalFooterComponent) footer: ModalFooterComponent;
     /**/
     private isOpened: boolean;
     /* Current status of modal - hidden or shown */
@@ -68,6 +69,7 @@ export class ModalComponent implements  OnInit {
         this.depth = angularTransistorConfig.modalDefaultDepth;
         this.header = true;
         this.icon = null;
+        this.footerHeight = 0;
         this.isOpened = false;
         this.status = 'hidden';
     };
@@ -76,6 +78,11 @@ export class ModalComponent implements  OnInit {
 
     ngOnInit(): void {
         this.modals.register(this);
+    };
+
+
+    ngAfterContentInit(): void {
+        //console.log('footer', this.footer);
     };
 
 

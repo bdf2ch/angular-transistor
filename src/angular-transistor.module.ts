@@ -5,6 +5,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { TabComponent } from './tabs/tab/tab.component';
 import { TabsService } from './tabs/tabs.service';
 import { ModalComponent } from './modals/modal.component';
+import { ModalFooterComponent } from './modals/modal-footer/modal-footer.component';
 import { ModalsService } from './modals/modals.service';
 import './assets/styles/angular-transistor.css';
 import 'font-awesome/css/font-awesome.css';
@@ -20,12 +21,14 @@ import './assets/fonts/OpenSans/OpenSans-Regular.ttf';
     declarations: [
         TabsComponent,
         TabComponent,
-        ModalComponent
+        ModalComponent,
+        ModalFooterComponent
     ],
     exports: [
         TabsComponent,
         TabComponent,
-        ModalComponent
+        ModalComponent,
+        ModalFooterComponent
     ],
     providers: [
         TabsService,
