@@ -1,7 +1,7 @@
 {
   "name": "@bdf2ch/angular-transistor",
-  "version": "0.0.26",
-  "description": "Kit of UI plugins for Angular2+",
+  "version": "0.0.27",
+  "description": "Set of UI plugins for Angular2+",
   "main": "index.js",
   "scripts": {
     "test:once": "karma start karma.conf.js --single-run",

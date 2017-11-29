@@ -1,12 +1,16 @@
 <div class="modal-component" [ngStyle]="{ 'z-index': config.modalDefaultDepth + depth }" [@fog]="status" *ngIf="isOpened">
-    <div class="modal" [ngStyle]="{ 'width': width + 'px', 'height': height !== 0 ? height + 'px': 'auto', 'max-height': height === 0 ? config.modalDefaultHeight + 'px' : height + 'px' }" [@modal]="status">
+    <div class="modal"
+         [style.width]="width + 'px'"
+         [style.height]="header ? contentHeight + footerHeight + 60 + 'px' : contentHeight + footerHeight + 'px'"
+         [@modal]="status"
+         #modal>
         <div class="header" *ngIf="header" [ngClass]="{ 'with-icon': icon }">
             <div class="icon" *ngIf="icon"><i class="{{ icon }}"></i></div>
             <div class="caption">{{ caption }}</div>
             <div class="close-button" title="Закрыть" (click)="close()">&times;</div>
         </div>
         <div class="headerless-close-button" title="Закрыть" *ngIf="!header" (click)="close()">&times;</div>
-        <div class="modal-content">
+        <div>
             <ng-content></ng-content>
         </div>
     </div>

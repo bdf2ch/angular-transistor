@@ -1,0 +1,13 @@
+.modal-footer-component {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
+  background: #FAFAFA;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

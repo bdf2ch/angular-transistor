@@ -14,32 +14,53 @@ var animations_1 = require("@angular/animations");
 var modals_service_1 = require("./modals.service");
 var angular_transistor_config_1 = require("../angular-transistor.config");
 var ModalComponent = (function () {
+    //@ViewChild('modal', { read: ViewContainerRef }) modal: ViewContainerRef;
     /**
      * Constructor
      * @param {ModalsService} modals
      */
-    function ModalComponent(modals) {
+    function ModalComponent(modals, detector) {
         this.modals = modals;
+        this.detector = detector;
         /**/
         this.onClose = new core_1.EventEmitter();
         this.config = angular_transistor_config_1.angularTransistorConfig;
         this.width = angular_transistor_config_1.angularTransistorConfig.modalDefaultWidht;
-        this.height = 0;
+        //this.height = 0;
+        this.modalHeight = 0;
         this.depth = angular_transistor_config_1.angularTransistorConfig.modalDefaultDepth;
         this.header = true;
         this.icon = null;
+        this.contentHeight = 0;
+        this.footerHeight = 0;
         this.isOpened = false;
         this.status = 'hidden';
     }
     ;
+    ModalComponent.prototype.ngAfterContentChecked = function () {
+        console.log('modal content checked');
+        console.log('modal height = ', this.contentHeight + this.footerHeight + 'px');
+        //if (this.modal.element) {
+        //    this.modal.element.nativeElement.height = this.contentHeight + this.footerHeight + 'px';
+        //}
+    };
+    ;
     ModalComponent.prototype.ngOnInit = function () {
         this.modals.register(this);
+    };
+    ;
+    ModalComponent.prototype.ngAfterViewInit = function () {
+        //console.log(this.headerElement);
+        //console.log('footer', this.footer);
+        console.log('MODAL AFTER CONTENT CHECKED');
+        this.detector.detectChanges();
     };
     ;
     ModalComponent.prototype.open = function () {
         var _this = this;
         this.isOpened = true;
         window.setTimeout(function () {
+            _this.detector.detectChanges();
             _this.status = 'shown';
         }, 50);
     };
@@ -69,10 +90,6 @@ __decorate([
 ], ModalComponent.prototype, "width", void 0);
 __decorate([
     core_1.Input(),
-    __metadata("design:type", Number)
-], ModalComponent.prototype, "height", void 0);
-__decorate([
-    core_1.Input(),
     __metadata("design:type", Boolean)
 ], ModalComponent.prototype, "header", void 0);
 __decorate([
@@ -91,8 +108,8 @@ ModalComponent = __decorate([
     core_1.Component({
         selector: 'modal',
         templateUrl: './modal.component.html',
-        //styleUrls: ['./modal.component.css'],
         styles: [require('./modal.component.css').toString()],
+        changeDetection: core_1.ChangeDetectionStrategy.Default,
         animations: [
             animations_1.trigger("fog", [
                 animations_1.state('shown', animations_1.style({
@@ -116,7 +133,8 @@ ModalComponent = __decorate([
             ])
         ]
     }),
-    __metadata("design:paramtypes", [modals_service_1.ModalsService])
+    __metadata("design:paramtypes", [modals_service_1.ModalsService,
+        core_1.ChangeDetectorRef])
 ], ModalComponent);
 exports.ModalComponent = ModalComponent;
 //# sourceMappingURL=modal.component.js.map
