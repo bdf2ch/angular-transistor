@@ -18,12 +18,12 @@ export class ModalContentComponent implements AfterViewChecked, AfterViewInit {
     }
 
 
-    constructor(@Optional() @Host() private parent: ModalComponent,
-                private element: ElementRef,
+    constructor(//@Optional() @Host() private parent: ModalComponent,
+                public element: ElementRef,
     private detector: ChangeDetectorRef) {
-        if (!parent) {
-            console.log('angular-transistor: component \'modal-content\' must be used only inside \'modal\' component');
-        }
+        //if (!parent) {
+        //    console.log('angular-transistor: component \'modal-content\' must be used only inside \'modal\' component');
+        //}
         this.height = 0;
     };
 
@@ -31,13 +31,13 @@ export class ModalContentComponent implements AfterViewChecked, AfterViewInit {
     ngAfterViewChecked(): void {
         console.log(this.element.nativeElement.children[0]);
         console.log('content-height afterViewChecked', this.element.nativeElement.children[0].clientHeight);
-        if (this.parent) {
-            this.parent.contentHeight = this.element.nativeElement.children[0].clientHeight;
-            this.parent.detector.detectChanges();
-        }
+        //if (this.parent) {
+        //    this.parent.contentHeight = this.element.nativeElement.children[0].clientHeight;
+        //    this.parent.detector.detectChanges();
+        //}
         if (this.height === 0) {
             this.height = this.element.nativeElement.children[0].clientHeight;
-            this.parent.detector.detectChanges();
+            //this.parent.detector.detectChanges();
         }
     };
 

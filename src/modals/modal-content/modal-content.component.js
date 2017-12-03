@@ -8,20 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var modal_component_1 = require("../modal.component");
 var ModalContentComponent = (function () {
-    function ModalContentComponent(parent, element, detector) {
-        this.parent = parent;
+    function ModalContentComponent(//@Optional() @Host() private parent: ModalComponent,
+        element, detector) {
         this.element = element;
         this.detector = detector;
-        if (!parent) {
-            console.log('angular-transistor: component \'modal-content\' must be used only inside \'modal\' component');
-        }
+        //if (!parent) {
+        //    console.log('angular-transistor: component \'modal-content\' must be used only inside \'modal\' component');
+        //}
         this.height = 0;
     }
     ModalContentComponent.prototype.ngAfterViewInit = function () {
@@ -31,13 +27,13 @@ var ModalContentComponent = (function () {
     ModalContentComponent.prototype.ngAfterViewChecked = function () {
         console.log(this.element.nativeElement.children[0]);
         console.log('content-height afterViewChecked', this.element.nativeElement.children[0].clientHeight);
-        if (this.parent) {
-            this.parent.contentHeight = this.element.nativeElement.children[0].clientHeight;
-            this.parent.detector.detectChanges();
-        }
+        //if (this.parent) {
+        //    this.parent.contentHeight = this.element.nativeElement.children[0].clientHeight;
+        //    this.parent.detector.detectChanges();
+        //}
         if (this.height === 0) {
             this.height = this.element.nativeElement.children[0].clientHeight;
-            this.parent.detector.detectChanges();
+            //this.parent.detector.detectChanges();
         }
     };
     ;
@@ -53,9 +49,7 @@ ModalContentComponent = __decorate([
         templateUrl: './modal-content.component.html',
         styles: [require('./modal-content.component.css').toString()]
     }),
-    __param(0, core_1.Optional()), __param(0, core_1.Host()),
-    __metadata("design:paramtypes", [modal_component_1.ModalComponent,
-        core_1.ElementRef,
+    __metadata("design:paramtypes", [core_1.ElementRef,
         core_1.ChangeDetectorRef])
 ], ModalContentComponent);
 exports.ModalContentComponent = ModalContentComponent;

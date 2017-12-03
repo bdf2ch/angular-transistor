@@ -9,18 +9,18 @@ import { ModalComponent } from '../modal.component';
 })
 export class ModalFooterComponent implements AfterViewChecked {
 
-    constructor(@Optional() @Host() private parent: ModalComponent,
-                private element: ElementRef,
+    constructor(//@Optional() @Host() private parent: ModalComponent,
+                public element: ElementRef,
                 private detector: ChangeDetectorRef) {
-        if (!parent) {
-            console.log('angular-transistor: \'modal-footer\' component must be used only inside \'modal\' component');
-        }
+        //if (!parent) {
+        //    console.log('angular-transistor: \'modal-footer\' component must be used only inside \'modal\' component');
+        //}
     };
 
 
     ngAfterViewChecked(): void {
-        console.log('modal-footer height: ', this.element.nativeElement.children[0].clientHeight);
-        this.parent.footerHeight = this.element.nativeElement.children[0].clientHeight;
-        this.detector.markForCheck();
+        //console.log('modal-footer height: ', this.element.nativeElement.children[0].clientHeight);
+        //this.parent.footerHeight = this.element.nativeElement.children[0].clientHeight;
+        //this.detector.markForCheck();
     };
 }

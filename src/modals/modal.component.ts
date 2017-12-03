@@ -1,10 +1,13 @@
 import {
-    Component, Input, Output, OnInit, AfterContentInit, EventEmitter,
-    ChangeDetectionStrategy, ChangeDetectorRef, AfterViewInit, AfterContentChecked, ViewContainerRef, ViewChild
+    Component, Input, Output, OnInit, AfterContentInit, EventEmitter, Renderer2,
+    ChangeDetectionStrategy, ChangeDetectorRef, AfterViewInit, AfterContentChecked, ViewContainerRef, ViewChild,
+    ContentChild, Optional
 } from '@angular/core';
 import { trigger, state, transition, animate, style } from '@angular/animations';
 import { ModalsService } from './modals.service';
 import { angularTransistorConfig } from '../angular-transistor.config';
+import { ModalFooterComponent } from './modal-footer/modal-footer.component';
+import { ModalContentComponent } from './modal-content/modal-content.component';
 
 
 @Component({
@@ -35,7 +38,8 @@ import { angularTransistorConfig } from '../angular-transistor.config';
         ])
     ]
 })
-export class ModalComponent implements AfterViewInit, OnInit, AfterContentChecked {
+export class ModalComponent implements AfterContentChecked {
+
     /* Modal id */
     @Input() id: string;
 
@@ -67,7 +71,10 @@ export class ModalComponent implements AfterViewInit, OnInit, AfterContentChecke
     private status: string;
     private config: any = angularTransistorConfig;
 
-    //@ViewChild('modal', { read: ViewContainerRef }) modal: ViewContainerRef;
+    @ViewChild('modal', { read: ViewContainerRef }) private modal: ViewContainerRef;
+    @ContentChild(ModalFooterComponent) private footer: ModalFooterComponent;
+    @ContentChild(ModalContentComponent) private content: ModalContentComponent;
+
 
 
     /**
@@ -75,6 +82,7 @@ export class ModalComponent implements AfterViewInit, OnInit, AfterContentChecke
      * @param {ModalsService} modals
      */
     constructor(private modals: ModalsService,
+                private renderer: Renderer2,
                 public detector: ChangeDetectorRef) {
         this.width = angularTransistorConfig.modalDefaultWidht;
         //this.height = 0;
@@ -89,27 +97,26 @@ export class ModalComponent implements AfterViewInit, OnInit, AfterContentChecke
     };
 
 
-    ngAfterContentChecked(): void {
-        console.log('modal content checked');
-        console.log('modal height = ', this.contentHeight + this.footerHeight + 'px');
-        //if (this.modal.element) {
-        //    this.modal.element.nativeElement.height = this.contentHeight + this.footerHeight + 'px';
-        //}
-    };
-
-
     ngOnInit(): void {
         this.modals.register(this);
     };
 
 
-    ngAfterViewInit(): void {
-        //console.log(this.headerElement);
-        //console.log('footer', this.footer);
-        console.log('MODAL AFTER CONTENT CHECKED');
-        this.detector.detectChanges();
+    ngAfterContentChecked(): void {
+        if (this.modal) {
+            if (this.content) {
+                let contentHeight = this.content.element.nativeElement.children[0].clientHeight;
+                this.renderer.setStyle(this.content.element.nativeElement.children[0], 'top', this.header ? '60px' : '0px');
+                if (this.footer) {
+                    let footerHeight = this.footer.element.nativeElement.children[0].clientHeight;
+                    this.renderer.setStyle(this.content.element.nativeElement.children[0], 'bottom', this.footer.element.nativeElement.children[0].clientHeight + 'px');
+                    this.renderer.setStyle(this.modal.element.nativeElement, 'height', this.header ? 60 + contentHeight + footerHeight + 'px' : contentHeight + footerHeight + 'px');
+                } else {
+                    this.renderer.setStyle(this.modal.element.nativeElement, 'height', this.header ? 60 + contentHeight + 'px' : contentHeight + 'px');
+                }
+            }
+        }
     };
-
 
 
 

@@ -13,14 +13,16 @@ var core_1 = require("@angular/core");
 var animations_1 = require("@angular/animations");
 var modals_service_1 = require("./modals.service");
 var angular_transistor_config_1 = require("../angular-transistor.config");
+var modal_footer_component_1 = require("./modal-footer/modal-footer.component");
+var modal_content_component_1 = require("./modal-content/modal-content.component");
 var ModalComponent = (function () {
-    //@ViewChild('modal', { read: ViewContainerRef }) modal: ViewContainerRef;
     /**
      * Constructor
      * @param {ModalsService} modals
      */
-    function ModalComponent(modals, detector) {
+    function ModalComponent(modals, renderer, detector) {
         this.modals = modals;
+        this.renderer = renderer;
         this.detector = detector;
         /**/
         this.onClose = new core_1.EventEmitter();
@@ -37,23 +39,25 @@ var ModalComponent = (function () {
         this.status = 'hidden';
     }
     ;
-    ModalComponent.prototype.ngAfterContentChecked = function () {
-        console.log('modal content checked');
-        console.log('modal height = ', this.contentHeight + this.footerHeight + 'px');
-        //if (this.modal.element) {
-        //    this.modal.element.nativeElement.height = this.contentHeight + this.footerHeight + 'px';
-        //}
-    };
-    ;
     ModalComponent.prototype.ngOnInit = function () {
         this.modals.register(this);
     };
     ;
-    ModalComponent.prototype.ngAfterViewInit = function () {
-        //console.log(this.headerElement);
-        //console.log('footer', this.footer);
-        console.log('MODAL AFTER CONTENT CHECKED');
-        this.detector.detectChanges();
+    ModalComponent.prototype.ngAfterContentChecked = function () {
+        if (this.modal) {
+            if (this.content) {
+                var contentHeight = this.content.element.nativeElement.children[0].clientHeight;
+                this.renderer.setStyle(this.content.element.nativeElement.children[0], 'top', this.header ? '60px' : '0px');
+                if (this.footer) {
+                    var footerHeight = this.footer.element.nativeElement.children[0].clientHeight;
+                    this.renderer.setStyle(this.content.element.nativeElement.children[0], 'bottom', this.footer.element.nativeElement.children[0].clientHeight + 'px');
+                    this.renderer.setStyle(this.modal.element.nativeElement, 'height', this.header ? 60 + contentHeight + footerHeight + 'px' : contentHeight + footerHeight + 'px');
+                }
+                else {
+                    this.renderer.setStyle(this.modal.element.nativeElement, 'height', this.header ? 60 + contentHeight + 'px' : contentHeight + 'px');
+                }
+            }
+        }
     };
     ;
     ModalComponent.prototype.open = function () {
@@ -104,6 +108,18 @@ __decorate([
     core_1.Output(),
     __metadata("design:type", core_1.EventEmitter)
 ], ModalComponent.prototype, "onClose", void 0);
+__decorate([
+    core_1.ViewChild('modal', { read: core_1.ViewContainerRef }),
+    __metadata("design:type", core_1.ViewContainerRef)
+], ModalComponent.prototype, "modal", void 0);
+__decorate([
+    core_1.ContentChild(modal_footer_component_1.ModalFooterComponent),
+    __metadata("design:type", modal_footer_component_1.ModalFooterComponent)
+], ModalComponent.prototype, "footer", void 0);
+__decorate([
+    core_1.ContentChild(modal_content_component_1.ModalContentComponent),
+    __metadata("design:type", modal_content_component_1.ModalContentComponent)
+], ModalComponent.prototype, "content", void 0);
 ModalComponent = __decorate([
     core_1.Component({
         selector: 'modal',
@@ -134,6 +150,7 @@ ModalComponent = __decorate([
         ]
     }),
     __metadata("design:paramtypes", [modals_service_1.ModalsService,
+        core_1.Renderer2,
         core_1.ChangeDetectorRef])
 ], ModalComponent);
 exports.ModalComponent = ModalComponent;
