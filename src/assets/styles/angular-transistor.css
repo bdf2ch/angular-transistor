@@ -660,6 +660,12 @@
 .column.vertical-stretch {
   justify-content: stretch;
 }
+.column.vertical-around {
+  justify-content: space-around;
+}
+.column.vertical-between {
+  justify-content: space-between;
+}
 .cell {
   display: flex;
 }
