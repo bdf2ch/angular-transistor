@@ -39,12 +39,8 @@
   text-align: center;
   cursor: pointer;
 }
-.modal-component .modal .header {
+.modal-component .modal .modal-header {
   overflow: hidden;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -55,16 +51,16 @@
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
 }
-.modal-component .modal .header,
-.modal-component .modal .header > * {
+.modal-component .modal .modal-header,
+.modal-component .modal .modal-header > * {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.modal-component .modal .header.with-icon .caption {
+.modal-component .modal .modal-header.with-icon .caption {
   margin-left: 0px !important;
 }
-.modal-component .modal .header .icon {
+.modal-component .modal .modal-header .icon {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -73,7 +69,7 @@
   text-align: center;
   color: white;
 }
-.modal-component .modal .header .caption {
+.modal-component .modal .modal-header .caption {
   overflow: hidden;
   flex-direction: row;
   justify-content: flex-start;
@@ -89,7 +85,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.modal-component .modal .header .close-button {
+.modal-component .modal .modal-header .close-button {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -102,7 +98,6 @@
   cursor: pointer;
 }
 .modal-component .modal .modal-content {
-  overflow: auto;
   position: relative;
   display: flex;
   width: 100%;

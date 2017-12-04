@@ -1,8 +1,0 @@
-.modal-content-component {
-  overflow: auto;
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  display: flex;
-  box-sizing: border-box;
-}

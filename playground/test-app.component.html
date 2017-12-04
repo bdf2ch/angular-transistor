@@ -92,8 +92,8 @@
 
         <tab [id]="'test2'" [caption]="'modals'" [icon]="'fa fa-window-maximize'" [title]="'modals example'">
             <div class="padding-20">
-                <modal [id]="'test-modal'" [header]="true" [caption]="'test modal caption'" [depth]="1" [icon]="'fa fa-globe'">
-                    <modal-content [height]="300">
+                <modal [id]="'test-modal'" [header]="true" [caption]="'test modal caption'" [width]="550" [height]="400" [depth]="1" [icon]="'fa fa-globe'">
+                    <form class="column width-100">
                         <div class="column width-100">
                             <tabs [id]="'second-tabs'">
                                 <tab [id]="'test1'" [caption]="'test tab one'" [width]="50">
@@ -129,22 +129,26 @@
                                 <tab [id]="'test2'" [caption]="'test tab two'" [width]="50">second test tab</tab>
                             </tabs>
                         </div>
-                    </modal-content>
+                        <div class="form-footer padding-10">
+                            <div class="row width-100">
+                                <button class="btn medium blue width-50 margin-right-5 ">left button</button>
+                                <button class="btn medium green width-50 margin-left-5">right button</button>
+                            </div>
+                        </div>
+                    </form>
 
-                    <modal-footer>
-                        <div class="row width-100 padding-left-10 padding-right-10 padding-top-10 padding-bottom-10">
-                            <button class="btn medium green width-50 margin-right-5">left button</button>
-                            <button class="btn medium blue width-50 margin-left-5">right button</button>
-                        </div>
-                    </modal-footer>
                 </modal>
-                <modal [id]="'second-test-modal'" [header]="false" [caption]="'second test modal with long text with ellipsis'" [width]="300" [depth]="2">
-                    <modal-content [height]="200">
-                        <div class="column width-100 padding-20 horizontal-center vertical-center">
-                            <button class="btn medium blue outline width-80 margin-bottom-10" (click)="openModal()">open first modal</button>
-                            <button class="btn medium blue outline width-80" (click)="closeSecondModal()">close second modal</button>
-                        </div>
-                    </modal-content>
+
+
+                <modal [id]="'second-test-modal'" [header]="false" [caption]="'second test modal with long text with ellipsis'" [width]="300" [height]="300" [depth]="2">
+                    <div class="column width-100 padding-20 horizontal-center vertical-center">
+                        <button class="btn medium blue outline width-80 margin-bottom-10" (click)="openModal()">open
+                            first modal
+                        </button>
+                        <button class="btn medium blue outline width-80" (click)="closeSecondModal()">close second
+                            modal
+                        </button>
+                    </div>
                 </modal>
                 <button class="btn medium gray" (click)="openModal()">open modal</button>
                 <button class="btn  mediumgray" (click)="openSecondModal()">open second modal</button>
