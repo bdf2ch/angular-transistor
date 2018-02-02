@@ -5,9 +5,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var animations_1 = require("@angular/animations");
+var modals_service_1 = require("./modals.service");
 var angular_transistor_config_1 = require("../angular-transistor.config");
 var ModalComponent = (function () {
     /**
@@ -19,6 +23,8 @@ var ModalComponent = (function () {
         this.renderer = renderer;
         /**/
         this.onClose = new core_1.EventEmitter();
+        // private footer: boolean;
+        this.config = angular_transistor_config_1.angularTransistorConfig;
         this.width = angular_transistor_config_1.angularTransistorConfig.modalDefaultWidht;
         this.height = 0;
         this.depth = angular_transistor_config_1.angularTransistorConfig.modalDefaultDepth;
@@ -63,34 +69,44 @@ var ModalComponent = (function () {
     return ModalComponent;
 }());
 __decorate([
-    core_1.Input()
+    core_1.Input(),
+    __metadata("design:type", String)
 ], ModalComponent.prototype, "id", void 0);
 __decorate([
-    core_1.Input()
+    core_1.Input(),
+    __metadata("design:type", Number)
 ], ModalComponent.prototype, "depth", void 0);
 __decorate([
-    core_1.Input()
+    core_1.Input(),
+    __metadata("design:type", Number)
 ], ModalComponent.prototype, "width", void 0);
 __decorate([
-    core_1.Input()
+    core_1.Input(),
+    __metadata("design:type", Number)
 ], ModalComponent.prototype, "height", void 0);
 __decorate([
-    core_1.Input()
+    core_1.Input(),
+    __metadata("design:type", Boolean)
 ], ModalComponent.prototype, "header", void 0);
 __decorate([
-    core_1.Input()
+    core_1.Input(),
+    __metadata("design:type", String)
 ], ModalComponent.prototype, "caption", void 0);
 __decorate([
-    core_1.Input()
+    core_1.Input(),
+    __metadata("design:type", String)
 ], ModalComponent.prototype, "icon", void 0);
 __decorate([
-    core_1.Output()
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
 ], ModalComponent.prototype, "onClose", void 0);
 __decorate([
-    core_1.ViewChild('modal', { read: core_1.ViewContainerRef })
+    core_1.ViewChild('modal', { read: core_1.ViewContainerRef }),
+    __metadata("design:type", core_1.ViewContainerRef)
 ], ModalComponent.prototype, "modal", void 0);
 __decorate([
-    core_1.ViewChild('content', { read: core_1.ViewContainerRef })
+    core_1.ViewChild('content', { read: core_1.ViewContainerRef }),
+    __metadata("design:type", core_1.ViewContainerRef)
 ], ModalComponent.prototype, "content", void 0);
 ModalComponent = __decorate([
     core_1.Component({
@@ -119,6 +135,9 @@ ModalComponent = __decorate([
                 animations_1.transition('shown => hidden', animations_1.animate('100ms ease-out')),
             ])
         ]
-    })
+    }),
+    __metadata("design:paramtypes", [modals_service_1.ModalsService,
+        core_1.Renderer2])
 ], ModalComponent);
 exports.ModalComponent = ModalComponent;
+//# sourceMappingURL=modal.component.js.map

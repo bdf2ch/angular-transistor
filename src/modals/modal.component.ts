@@ -64,6 +64,7 @@ export class ModalComponent implements AfterViewChecked {
     /* Current status of modal - hidden or shown */
     private status: string;
     // private footer: boolean;
+    private config: any = angularTransistorConfig;
     private isHeader: boolean;
 
     @ViewChild('modal', { read: ViewContainerRef }) private modal: ViewContainerRef;
