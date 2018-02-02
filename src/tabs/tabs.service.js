@@ -48,4 +48,3 @@ TabsService = __decorate([
     core_1.Injectable()
 ], TabsService);
 exports.TabsService = TabsService;
-//# sourceMappingURL=tabs.service.js.map

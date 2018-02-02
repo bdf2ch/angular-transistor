@@ -5,58 +5,41 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var animations_1 = require("@angular/animations");
-var modals_service_1 = require("./modals.service");
 var angular_transistor_config_1 = require("../angular-transistor.config");
-var modal_footer_component_1 = require("./modal-footer/modal-footer.component");
-var modal_content_component_1 = require("./modal-content/modal-content.component");
 var ModalComponent = (function () {
     /**
      * Constructor
      * @param {ModalsService} modals
      */
-    function ModalComponent(modals, renderer, detector) {
+    function ModalComponent(modals, renderer) {
         this.modals = modals;
         this.renderer = renderer;
-        this.detector = detector;
         /**/
         this.onClose = new core_1.EventEmitter();
-        this.config = angular_transistor_config_1.angularTransistorConfig;
         this.width = angular_transistor_config_1.angularTransistorConfig.modalDefaultWidht;
-        //this.height = 0;
-        this.modalHeight = 0;
+        this.height = 0;
         this.depth = angular_transistor_config_1.angularTransistorConfig.modalDefaultDepth;
+        this.modalHeight = 0;
         this.header = true;
         this.icon = null;
         this.contentHeight = 0;
         this.footerHeight = 0;
+        // this.footer = false;
         this.isOpened = false;
         this.status = 'hidden';
+        this.isHeader = true;
     }
     ;
     ModalComponent.prototype.ngOnInit = function () {
         this.modals.register(this);
     };
     ;
-    ModalComponent.prototype.ngAfterContentChecked = function () {
+    ModalComponent.prototype.ngAfterViewChecked = function () {
         if (this.modal) {
-            if (this.content) {
-                var contentHeight = this.content.element.nativeElement.children[0].clientHeight;
-                this.renderer.setStyle(this.content.element.nativeElement.children[0], 'top', this.header ? '60px' : '0px');
-                if (this.footer) {
-                    var footerHeight = this.footer.element.nativeElement.children[0].clientHeight;
-                    this.renderer.setStyle(this.content.element.nativeElement.children[0], 'bottom', this.footer.element.nativeElement.children[0].clientHeight + 'px');
-                    this.renderer.setStyle(this.modal.element.nativeElement, 'height', this.header ? 60 + contentHeight + footerHeight + 'px' : contentHeight + footerHeight + 'px');
-                }
-                else {
-                    this.renderer.setStyle(this.modal.element.nativeElement, 'height', this.header ? 60 + contentHeight + 'px' : contentHeight + 'px');
-                }
-            }
+            this.renderer.setStyle(this.content.element.nativeElement, 'height', this.header ? this.height - 60 : this.height);
         }
     };
     ;
@@ -64,7 +47,6 @@ var ModalComponent = (function () {
         var _this = this;
         this.isOpened = true;
         window.setTimeout(function () {
-            _this.detector.detectChanges();
             _this.status = 'shown';
         }, 50);
     };
@@ -81,63 +63,52 @@ var ModalComponent = (function () {
     return ModalComponent;
 }());
 __decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
+    core_1.Input()
 ], ModalComponent.prototype, "id", void 0);
 __decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
+    core_1.Input()
 ], ModalComponent.prototype, "depth", void 0);
 __decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
+    core_1.Input()
 ], ModalComponent.prototype, "width", void 0);
 __decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean)
+    core_1.Input()
+], ModalComponent.prototype, "height", void 0);
+__decorate([
+    core_1.Input()
 ], ModalComponent.prototype, "header", void 0);
 __decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
+    core_1.Input()
 ], ModalComponent.prototype, "caption", void 0);
 __decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
+    core_1.Input()
 ], ModalComponent.prototype, "icon", void 0);
 __decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
+    core_1.Output()
 ], ModalComponent.prototype, "onClose", void 0);
 __decorate([
-    core_1.ViewChild('modal', { read: core_1.ViewContainerRef }),
-    __metadata("design:type", core_1.ViewContainerRef)
+    core_1.ViewChild('modal', { read: core_1.ViewContainerRef })
 ], ModalComponent.prototype, "modal", void 0);
 __decorate([
-    core_1.ContentChild(modal_footer_component_1.ModalFooterComponent),
-    __metadata("design:type", modal_footer_component_1.ModalFooterComponent)
-], ModalComponent.prototype, "footer", void 0);
-__decorate([
-    core_1.ContentChild(modal_content_component_1.ModalContentComponent),
-    __metadata("design:type", modal_content_component_1.ModalContentComponent)
+    core_1.ViewChild('content', { read: core_1.ViewContainerRef })
 ], ModalComponent.prototype, "content", void 0);
 ModalComponent = __decorate([
     core_1.Component({
         selector: 'modal',
         templateUrl: './modal.component.html',
         styles: [require('./modal.component.css').toString()],
-        changeDetection: core_1.ChangeDetectionStrategy.Default,
         animations: [
-            animations_1.trigger("fog", [
+            animations_1.trigger('fog', [
                 animations_1.state('shown', animations_1.style({
                     background: 'rgba(0, 0, 0, 0.3)'
                 })),
                 animations_1.state('hidden', animations_1.style({
                     background: 'rgba(0, 0, 0, 0.0)'
                 })),
-                animations_1.transition('hidden => shown', animations_1.animate("200ms linear")),
-                animations_1.transition('shown => hidden', animations_1.animate("200ms linear")),
+                animations_1.transition('hidden => shown', animations_1.animate('200ms linear')),
+                animations_1.transition('shown => hidden', animations_1.animate('200ms linear')),
             ]),
-            animations_1.trigger("modal", [
+            animations_1.trigger('modal', [
                 animations_1.state('shown', animations_1.style({
                     transform: 'scale(1.0)'
                 })),
@@ -148,10 +119,6 @@ ModalComponent = __decorate([
                 animations_1.transition('shown => hidden', animations_1.animate('100ms ease-out')),
             ])
         ]
-    }),
-    __metadata("design:paramtypes", [modals_service_1.ModalsService,
-        core_1.Renderer2,
-        core_1.ChangeDetectorRef])
+    })
 ], ModalComponent);
 exports.ModalComponent = ModalComponent;
-//# sourceMappingURL=modal.component.js.map

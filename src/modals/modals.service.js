@@ -37,4 +37,3 @@ ModalsService = __decorate([
     core_1.Injectable()
 ], ModalsService);
 exports.ModalsService = ModalsService;
-//# sourceMappingURL=modals.service.js.map
