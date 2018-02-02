@@ -131,6 +131,9 @@
   flex-shrink: 0 !important;
   flex-grow: 0 !important;
 }
+.btn.badged {
+  overflow: visible;
+}
 .btn.file input[type='file'] {
   display: none;
 }
