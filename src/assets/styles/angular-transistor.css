@@ -253,8 +253,8 @@
   line-height: 11px;
 }
 .btn.small .round {
-  width: 25px;
-  max-width: 25px;
+  width: 25px !important;
+  max-width: 25px !important;
 }
 .btn.small .fa {
   font-size: 10px;
@@ -265,11 +265,17 @@
   font-size: 13px;
   line-height: 13px;
 }
+.btn.medium .fa {
+  font-size: 17px;
+}
 .btn.big {
   height: 47px;
   min-width: 47px;
   font-size: 14px;
   line-height: 14px;
+}
+.btn.big .fa {
+  font-size: 20px;
 }
 /* Input height */
 /* Input padding */
