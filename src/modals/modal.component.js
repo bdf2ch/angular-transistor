@@ -39,12 +39,17 @@ var ModalComponent = (function () {
         this.isHeader = true;
     }
     ;
+    /**
+     * Инициализация компонента
+     */
     ModalComponent.prototype.ngOnInit = function () {
         this.modals.register(this);
     };
     ;
+    /**
+     * Удаление компонента
+     */
     ModalComponent.prototype.ngOnDestroy = function () {
-        console.log('modal destroyed');
         this.modals.delete(this);
     };
     ;

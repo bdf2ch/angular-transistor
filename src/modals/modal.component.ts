@@ -97,12 +97,18 @@ export class ModalComponent implements AfterViewChecked, OnInit, OnDestroy {
     };
 
 
+    /**
+     * Инициализация компонента
+     */
     ngOnInit(): void {
         this.modals.register(this);
     };
 
+
+    /**
+     * Удаление компонента
+     */
     ngOnDestroy(): void {
-        console.log('modal destroyed');
         this.modals.delete(this);
     };
 

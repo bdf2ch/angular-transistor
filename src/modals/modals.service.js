@@ -24,7 +24,6 @@ var ModalsService = (function () {
         this.modals.forEach(function (item, index, modals) {
             if (item.id === modal.id) {
                 modals.splice(index, 1);
-                console.log('modal deleted');
             }
         });
     };

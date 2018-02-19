@@ -22,7 +22,6 @@ export class ModalsService {
         this.modals.forEach((item: ModalComponent, index: number, modals: ModalComponent[]) => {
             if (item.id === modal.id) {
                 modals.splice(index, 1);
-                console.log('modal deleted');
             }
         });
     };
