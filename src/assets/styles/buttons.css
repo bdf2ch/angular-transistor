@@ -109,14 +109,15 @@
   background: transparent;
 }
 .btn.round {
-  width: 32px;
-  max-width: 32px;
   border-radius: 50%;
   flex-shrink: 0 !important;
   flex-grow: 0 !important;
 }
 .btn.badged {
   overflow: visible;
+}
+.btn.badged .fa {
+  font-size: 10px;
 }
 .btn.file input[type='file'] {
   display: none;
