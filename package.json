@@ -1,6 +1,6 @@
 {
   "name": "@bdf2ch/angular-transistor",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "description": "Set of UI plugins for Angular2+",
   "main": "index.js",
   "scripts": {
