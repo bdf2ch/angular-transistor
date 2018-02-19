@@ -150,8 +150,15 @@
                         </button>
                     </div>
                 </modal>
+
                 <button class="btn medium gray" (click)="openModal()">open modal</button>
-                <button class="btn  mediumgray" (click)="openSecondModal()">open second modal</button>
+                <button class="btn  mediumg ray" (click)="openSecondModal()">open second modal</button>
+                <button class="btn medium blue badged" (click)="switchTrigger()">trigger</button>
+
+                <div *ngIf="trigger">
+                    <modal [id]="'trigger-modal'" [header]="false">test trigger modal</modal>
+                    <button class="btn blue medium" (click)="openTriggerModal()">trigger modal</button>
+                </div>
             </div>
         </tab>
 

@@ -20,6 +20,15 @@ var ModalsService = (function () {
         this.modals.push(modal);
     };
     ;
+    ModalsService.prototype.delete = function (modal) {
+        this.modals.forEach(function (item, index, modals) {
+            if (item.id === modal.id) {
+                modals.splice(index, 1);
+                console.log('modal deleted');
+            }
+        });
+    };
+    ;
     /**
      * Returns modal with specified if otherwise null
      * @param {string} modalId
@@ -37,3 +46,4 @@ ModalsService = __decorate([
     core_1.Injectable()
 ], ModalsService);
 exports.ModalsService = ModalsService;
+//# sourceMappingURL=modals.service.js.map

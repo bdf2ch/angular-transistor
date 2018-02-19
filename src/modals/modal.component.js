@@ -43,6 +43,11 @@ var ModalComponent = (function () {
         this.modals.register(this);
     };
     ;
+    ModalComponent.prototype.ngOnDestroy = function () {
+        console.log('modal destroyed');
+        this.modals.delete(this);
+    };
+    ;
     ModalComponent.prototype.ngAfterViewChecked = function () {
         if (this.modal) {
             this.renderer.setStyle(this.content.element.nativeElement, 'height', this.header ? this.height - 60 : this.height);

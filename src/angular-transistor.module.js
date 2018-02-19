@@ -45,3 +45,4 @@ AngularTransistorModule = __decorate([
     })
 ], AngularTransistorModule);
 exports.AngularTransistorModule = AngularTransistorModule;
+//# sourceMappingURL=angular-transistor.module.js.map

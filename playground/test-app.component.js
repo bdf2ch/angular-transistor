@@ -16,6 +16,7 @@ var TestAppComponent = (function () {
     function TestAppComponent(tabs, modals) {
         this.tabs = tabs;
         this.modals = modals;
+        this.trigger = false;
     }
     ;
     TestAppComponent.prototype.selectFirstTab = function () {
@@ -48,6 +49,14 @@ var TestAppComponent = (function () {
     ;
     TestAppComponent.prototype.closeSecondModal = function () {
         this.modals.get('second-test-modal').close();
+    };
+    ;
+    TestAppComponent.prototype.switchTrigger = function () {
+        this.trigger = !this.trigger;
+    };
+    ;
+    TestAppComponent.prototype.openTriggerModal = function () {
+        this.modals.get('trigger-modal').open();
     };
     ;
     return TestAppComponent;

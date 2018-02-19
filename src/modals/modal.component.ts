@@ -1,4 +1,7 @@
-import { Component, Input, Output, EventEmitter, Renderer2, AfterViewChecked, ViewContainerRef, ViewChild } from '@angular/core';
+import {
+    Component, Input, Output, EventEmitter, Renderer2, AfterViewChecked, ViewContainerRef, ViewChild, OnInit,
+    OnDestroy
+} from '@angular/core';
 import { trigger, state, transition, animate, style } from '@angular/animations';
 import { ModalsService } from './modals.service';
 import { angularTransistorConfig } from '../angular-transistor.config';
@@ -31,8 +34,7 @@ import { angularTransistorConfig } from '../angular-transistor.config';
         ])
     ]
 })
-export class ModalComponent implements AfterViewChecked {
-
+export class ModalComponent implements AfterViewChecked, OnInit, OnDestroy {
     /* Modal id */
     @Input() id: string;
 
@@ -97,6 +99,11 @@ export class ModalComponent implements AfterViewChecked {
 
     ngOnInit(): void {
         this.modals.register(this);
+    };
+
+    ngOnDestroy(): void {
+        console.log('modal destroyed');
+        this.modals.delete(this);
     };
 
 

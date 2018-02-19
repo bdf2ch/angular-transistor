@@ -8,9 +8,12 @@ import { ModalsService } from '../src/modals/modals.service';
     templateUrl: './test-app.component.html'
 })
 export class TestAppComponent {
+    private trigger: boolean;
 
     constructor(private tabs: TabsService,
-                private modals: ModalsService) {};
+                private modals: ModalsService) {
+        this.trigger = false;
+    };
 
     selectFirstTab(): void {
         this.tabs.get('lol').tab('test1').select();
@@ -43,6 +46,16 @@ export class TestAppComponent {
 
     closeSecondModal(): void {
         this.modals.get('second-test-modal').close();
+    };
+
+
+    switchTrigger(): void {
+        this.trigger = !this.trigger;
+    };
+
+
+    openTriggerModal(): void {
+        this.modals.get('trigger-modal').open();
     };
 
 }

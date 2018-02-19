@@ -5,3 +5,4 @@ exports.angularTransistorConfig = {
     modalDefaultHeight: 450,
     modalDefaultDepth: 1000
 };
+//# sourceMappingURL=angular-transistor.config.js.map
