@@ -132,7 +132,7 @@
 .btn.badged {
   overflow: visible;
 }
-.btn.badged .fa {
+.btn.badged .badge .fa {
   font-size: 10px;
 }
 .btn.file input[type='file'] {
@@ -255,7 +255,6 @@
 }
 .btn.small .round {
   width: 25px !important;
-  max-width: 25px !important;
 }
 .btn.small .fa {
   font-size: 10px;
